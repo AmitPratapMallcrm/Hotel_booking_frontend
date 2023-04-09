@@ -5,11 +5,15 @@ import getters from './getters.js';
 export default {
   state() {
     return {
-      userId: null,
+      userId: localStorage.userId,
       tokenId: null,
       roleId: null,
       didAutoLogout: false,
       isauth: false,
+      student: {
+        api_token : localStorage.token,
+        role_id: localStorage.role_id,
+      },
     };
   },
   mutations,

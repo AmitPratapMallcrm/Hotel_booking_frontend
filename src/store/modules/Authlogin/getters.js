@@ -2,6 +2,10 @@ export default {
     userId(state) {
       return state.userId;
     },
+    student(state)
+    {
+        return state.student;
+    },
     token(state) {
       return state.token;
     },
