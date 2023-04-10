@@ -1,79 +1,24 @@
 <template>
-   <nav class="navbar">
-        <div>admin</div>
-          <i class="fa fa-bars" aria-hidden="true"></i>
-      </nav>
-      <div id="sidebar">
-        <div class="sidebar__title">
-          <div class="sidebar__img">
-            <img src="assets/logo.png" alt="logo" />
-            <h1>Codersbite</h1>
-          </div>
-          <i
-            onclick="closeSidebar()"
-            class="fa fa-times"
-            id="sidebarIcon"
-            aria-hidden="true"
-          ></i>
-        </div>
-        <div class="sidebar__menu">
-          <div class="sidebar__link active_menu_link">
-            <i class="fa fa-home"></i>
-            <a href="#">Dashboard</a>
-          </div>
-          <h2>MNG</h2>
-          <div class="sidebar__link">
-            <i class="fa fa-user-secret" aria-hidden="true"></i>
-               <router-link to="/hotel">All Hotels</router-link>
-          </div>
-          <div class="sidebar__link">
-            <i class="fa fa-building-o"></i>
-            <router-link to="/login" v-if="addone()===false">Login</router-link>
-          </div>
-          <div class="sidebar__link">
-            <i class="fa fa-wrench"></i>
-            <router-link to="/registerpage" v-if="addone()===false">Register As User </router-link>
-          </div>
-          <div class="sidebar__link">
-            <i class="fa fa-archive"></i>
-            <router-link to="/logout" @click="logoutapp" v-if="addone()===true" > Logout </router-link>
-          </div>
-          <div class="sidebar__link">
-            <i class="fa fa-handshake-o"></i>
-            <a href="#">Contracts</a>
-          </div>
-          <h2>LEAVE</h2>
-          <div class="sidebar__link">
-            <i class="fa fa-question"></i>
-            <a href="#">Requests</a>
-          </div>
-          <div class="sidebar__link">
-            <i class="fa fa-sign-out"></i>
-            <a href="#">Leave Policy</a>
-          </div>
-          <div class="sidebar__link">
-            <i class="fa fa-calendar-check-o"></i>
-            <a href="#">Special Days</a>
-          </div>
-          <div class="sidebar__link">
-            <i class="fa fa-files-o"></i>
-            <a href="#">Apply for leave</a>
-          </div>
-          <h2>PAYROLL</h2>
-          <div class="sidebar__link">
-            <i class="fa fa-money"></i>
-            <a href="#">Payroll</a>
-          </div>
-          <div class="sidebar__link">
-            <i class="fa fa-briefcase"></i>
-            <a href="#">Paygrade</a>
-          </div>
-          <div class="sidebar__logout">
-            <i class="fa fa-power-off"></i>
-            <a href="#">Log out</a>
-          </div>
-        </div>
-      </div>
+
+      <nav style="    display: flex;
+    width: 99vw;
+    padding: 0;
+    margin: 0;">
+     <router-link to="/hotel">All Hotels</router-link>
+      <router-link to="/login" v-if="addone()===false">Login</router-link>
+      <router-link to="/registerpage" v-if="addone()===false">Sign Up </router-link>
+       <router-link to="/logout" @click="logoutapp" v-if="addone()===true" > Logout </router-link>
+
+  <div style="position:absolute; right:0">
+    <a href="" style="width:40px">
+      <img src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-profile-line-black-icon-png-image_691051.jpg" style="height:30px;width:30px;border-radius:50px">
+      <a style="margin:0; width:80px; color: wheat;">Vivek</a>
+    </a>
+
+
+  </div>
+	<div class="animation start-home"></div>
+</nav>
 </template>
 <script>
 export default {
@@ -139,7 +84,7 @@ body {
   color: #3B9668;
 }
 .container {
-  display: grid;
+  /* display: block; */
   max-width: 1300px;
   /* height: 100vh; */
   grid-template-columns: 0.8fr 1fr 1fr 1fr;
@@ -148,6 +93,17 @@ body {
     'sidebar nav nav nav'
     'sidebar main main main';
   /* grid-gap: 0.2rem; */
+}
+.container[data-v-7ba5bd90] {
+    display: block !important;
+    max-width: 1300px;
+    /* height: 100vh; */
+    /* grid-template-columns: 0.8fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+        'sidebar nav nav nav'
+        'sidebar main main main'; */
+    /* grid-gap: 0.2rem; */
 }
 .navbar {
   background: #FFFFFF;
@@ -198,8 +154,15 @@ body {
 main {
   background: #F3F4F6;
   grid-area: main;
-  overflow-y: auto;
-  margin-bottom: -48px;
+  /* overflow-y: auto; */
+  margin-bottom: -5300px;
+}
+main[data-v-7ba5bd90] {
+    background: #F3F4F6;
+    width: 100vw;
+    grid-area: main;
+    overflow-y: auto;
+    margin-bottom: -48px;
 }
 .main__container {
   padding: 0px 0px;
@@ -259,22 +222,22 @@ main {
   background: #FFFFFF;
   box-shadow: 5px 5px 13px #EDEDED, -5px -5px 13px #FFFFFF;
 }
-.charts__left__title {
+.charts_left_title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.charts__left__title > div > h1 {
+.charts_left_title > div > h1 {
   font-size: 24px;
   color: #2E4A66;
   margin-bottom: 5px;
 }
-.charts__left__title > div > p {
+.charts_left_title > div > p {
   font-size: 14px;
   font-weight: 700;
   color: #A5AAAD;
 }
-.charts__left__title > i {
+.charts_left_title > i {
   color: #FFFFFF;
   font-size: 20px;
   background: #FFC100;
@@ -290,22 +253,22 @@ main {
   background: #FFFFFF;
   box-shadow: 5px 5px 13px #EDEDED, -5px -5px 13px #FFFFFF;
 }
-.charts__right__title {
+.charts_right_title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.charts__right__title > div > h1 {
+.charts_right_title > div > h1 {
   font-size: 24px;
   color: #2E4A66;
   margin-bottom: 5px;
 }
-.charts__right__title > div > p {
+.charts_right_title > div > p {
   font-size: 14px;
   font-weight: 700;
   color: #A5AAAD;
 }
-.charts__right__title > i {
+.charts_right_title > i {
   color: #FFFFFF;
   font-size: 20px;
   background: #39447A;
@@ -315,7 +278,7 @@ main {
   border: 0px solid #000000;
   padding: 15px;
 }
-.charts__right__cards {
+.charts_right_cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -442,7 +405,7 @@ main {
 @media only screen and (max-width: 978px) {
   .container {
     grid-template-columns: 1fr;
-    max-width: 1140px;
+    max-width: 100%;
     /* grid-template-rows: 0.2fr 2.2fr; */
     grid-template-rows: 0.2fr 3fr;
     grid-template-areas:
@@ -475,9 +438,109 @@ main {
     display: none;
   }
 }
+
+
+
+
+nav {
+	margin: 27px auto 0;
+
+	position: relative;
+	width: 590px;
+	height: 50px;
+	background-color: #34495e;
+	border-radius: 8px;
+	font-size: 0;
+}
+nav a {
+	line-height: 50px;
+	height: 100%;
+	font-size: 15px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+nav .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	border-radius: 8px;
+}
+a:nth-child(1) {
+	width: 100px;
+}
+a:nth-child(2) {
+	width: 110px;
+}
+a:nth-child(3) {
+	width: 100px;
+}
+a:nth-child(4) {
+	width: 160px;
+}
+a:nth-child(5) {
+	width: 120px;
+}
+nav .start-home, a:nth-child(1):hover~.animation {
+	width: 100px;
+	left: 0;
+	background-color: #1abc9c;
+}
+nav .start-about, a:nth-child(2):hover~.animation {
+	width: 110px;
+	left: 100px;
+	background-color: #e74c3c;
+}
+nav .start-blog, a:nth-child(3):hover~.animation {
+	width: 100px;
+	left: 210px;
+	background-color: #3498db;
+}
+nav .start-portefolio, a:nth-child(4):hover~.animation {
+	width: 160px;
+	left: 310px;
+	background-color: #9b59b6;
+}
+nav .start-contact, a:nth-child(5):hover~.animation {
+	width: 120px;
+	left: 470px;
+	background-color: #e67e22;
+}
+
+body {
+	font-size: 12px;
+	font-family: sans-serif;
+	background: #2c3e50;
+}
+h1 {
+	text-align: center;
+	margin: 40px 0 40px;
+	text-align: center;
+	font-size: 30px;
+	color: #ecf0f1;
+	text-shadow: 2px 2px 4px #000000;
+	font-family: 'Cherry Swash', cursive;
+}
+
+p {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #ecf0f1;
+    font-family: 'Cherry Swash',cursive;
+    font-size: 16px;
+}
+
+span {
+    color: #2BD6B4;
+}
+
 </style>
-
-
-
-
-

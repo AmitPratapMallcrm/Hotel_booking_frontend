@@ -7,7 +7,7 @@
       </div>
       <div class="login-content">
         <form @submit.prevent="onCreatePost">
-          <img src="../img/avatar1.jpg" />
+          <img src="../img/avatar1.svg" />
           <div class="input-div one">
             <div class="i">
               <i class="fas fa-user"></i>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" style="display:flex">
       <the-header></the-header>
       <main>
         <div class="main__container">
@@ -42,21 +42,21 @@ export default {
             console.log(this.api_token);
             console.log(this.role);
             this.$emit('postcreated');
-            if (this.role === '3') {
-              alert('Login Successfully as Customer');
-              this.$router.push('/hotel');
-            } else if (this.role === '1') {
-              alert('Login Successfully as Admin');
-              this.$router.push('/admin');
-            } else if (this.role === '2') {
-              alert('Login Successfully as Hotel');
-              this.$router.push('/yourhotel`');
-            } else if (this.check === true) {
-              alert('Login Successfully');
-              this.$router.push('/');
-            } else {
-              alert('Login failed');
-            }
+            // if (this.role === '3') {
+            //   alert('Login Successfully as Customer');
+            //   this.$router.push('/hotel');
+            // } else if (this.role === '1') {
+            //   alert('Login Successfully as Admin');
+            //   this.$router.push('/admin');
+            // } else if (this.role === '2') {
+            //   alert('Login Successfully as Hotel');
+            //   this.$router.push('/yourhotel`');
+            // } else if (this.check === true) {
+            //   alert('Login Successfully');
+            //   this.$router.push('/');
+            // } else {
+            //   alert('Login failed');
+            // }
             this.$store.dispatch('set', {
               tokenId: this.api_token,
               userId: this.user_id,
@@ -126,14 +126,15 @@ body {
   color: #3B9668;
 }
 .container {
-  display: grid;
-  max-width: 1300px;
+  flex-direction: column;
+  /* display: grid;
+  max-width: 1300px; */
   /* height: 100vh; */
-  grid-template-columns: 0.8fr 1fr 1fr 1fr;
+  /* grid-template-columns: 0.8fr 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 3fr;
   grid-template-areas:
     'sidebar nav nav nav'
-    'sidebar main main main';
+    'sidebar main main main'; */
   /* grid-gap: 0.2rem; */
 }
 .navbar {
@@ -246,22 +247,22 @@ main {
   background: #FFFFFF;
   box-shadow: 5px 5px 13px #EDEDED, -5px -5px 13px #FFFFFF;
 }
-.charts__left__title {
+.charts_left_title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.charts__left__title > div > h1 {
+.charts_left_title > div > h1 {
   font-size: 24px;
   color: #2E4A66;
   margin-bottom: 5px;
 }
-.charts__left__title > div > p {
+.charts_left_title > div > p {
   font-size: 14px;
   font-weight: 700;
   color: #A5AAAD;
 }
-.charts__left__title > i {
+.charts_left_title > i {
   color: #FFFFFF;
   font-size: 20px;
   background: #FFC100;
@@ -277,22 +278,22 @@ main {
   background: #FFFFFF;
   box-shadow: 5px 5px 13px #EDEDED, -5px -5px 13px #FFFFFF;
 }
-.charts__right__title {
+.charts_right_title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.charts__right__title > div > h1 {
+.charts_right_title > div > h1 {
   font-size: 24px;
   color: #2E4A66;
   margin-bottom: 5px;
 }
-.charts__right__title > div > p {
+.charts_right_title > div > p {
   font-size: 14px;
   font-weight: 700;
   color: #A5AAAD;
 }
-.charts__right__title > i {
+.charts_right_title > i {
   color: #FFFFFF;
   font-size: 20px;
   background: #39447A;
@@ -302,7 +303,7 @@ main {
   border: 0px solid #000000;
   padding: 15px;
 }
-.charts__right__cards {
+.charts_right_cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -346,7 +347,7 @@ main {
   grid-area: sidebar;
   overflow-y: auto;
   padding: 71px;
-    margin: -48px;
+    /* margin: -48px; */
     margin-right: 5px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -426,10 +427,16 @@ main {
   left: 0 !important;
   position: absolute;
 }
+@media (min-width: 1200px){
+
+.container{
+  max-width: 100% !important;
+}
+}
 @media only screen and (max-width: 978px) {
   .container {
     grid-template-columns: 1fr;
-    max-width: 1140px;
+    max-width: 100%;
     /* grid-template-rows: 0.2fr 2.2fr; */
     grid-template-rows: 0.2fr 3fr;
     grid-template-areas:
@@ -463,10 +470,3 @@ main {
   }
 }
 </style>
-
-
-
-
-
-
-

@@ -10,7 +10,7 @@
         </div>
       <div class="login-content">
         <form @submit.prevent="onLogin">
-          <img src="../img/avatar1.jpg" />
+          <img src="../img/avatar1.svg" />
           <h2 class="title">Welcome</h2>
           <div class="input-div one">
             <div class="i">
@@ -76,7 +76,7 @@ export default {
             }
             else if (this.role === '2' ) {
                alert("Login Successfully as Hotel");
-              this.$router.push('/yourhotel`');
+              this.$router.push('/register');
             }
            else if (this.check === true) {
               alert("Login Successfully");

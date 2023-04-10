@@ -2,8 +2,9 @@ import{ createRouter , createWebHistory } from 'vue-router';
 import ContactHotel from './Hotel/ContactHotel.vue';
 import HotelDetail from './Hotel/HotelDetail.vue';
 import HotelList from './Hotel/HotelList.vue';
-import HotelRegistration from './Hotel/HotelRegistration.vue';
+import HotelForm from './Hotel/HotelForm.vue';
 import RequestHotel from './Hotel/RequestHotel.vue';
+import RoomPage from './Hotel/RoomPage.vue';
 import NotFound from './NotFound.vue';
 import AuthLogin from './Login/AuthLogin.vue'
 import RegisterPage from './Customer/RegisterPage.vue'
@@ -21,7 +22,8 @@ const router = createRouter({
      children: [
         {path: 'contact',component: ContactHotel},// /coaches/c1/contect
     ]},
-    {path: '/register',component: HotelRegistration},
+    {path: '/register',component: HotelForm},
+    {path: '/room',component: RoomPage},
     {path: '/yourhotel',component: YourHotel},//, meta:{ requiresAuth: true}},
     {path: '/admin',component: AdminDashboard},//, meta:{ requireAuth : true} },
     {path: '/requests',component: RequestHotel},
