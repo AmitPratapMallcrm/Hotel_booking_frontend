@@ -1,4 +1,4 @@
-<template>
+ <template>
 <div>
 <section class="container">
       <header>Registration Form for hotel info</header>
@@ -30,7 +30,7 @@
               <label for="check-wifi-no">NO</label>
             </div>
           </div>
-        </div> 
+        </div>
          <div class="gender-box">
           <h3>Hotel Available</h3>
           <div class="gender-option">
@@ -50,7 +50,7 @@
           <label>Address</label>
           <input type="text" placeholder="Enter street address" required  v-model.trim="hotel.address" />
           <div class="column">
-            
+
             <input type="text" placeholder="Country" required v-model.trim="hotel.country"/>
             <input type="text" placeholder="District" required v-model.trim="hotel.district"/>
           </div>
@@ -60,10 +60,10 @@
             <input type="number" placeholder="Large Room Price" required v-model.trim="hotel.pricel"/>
             <input type="number" placeholder="Delux Room Price" required v-model.trim="hotel.priced"/>
              <input type="number" placeholder="total number available room" required v-model.trim="hotel.availroom"/>
-            
+
           </div>
         </div>
-      
+
           <!-- <label for="img">image1</label>
           <div>
             <input type="file"
@@ -97,7 +97,7 @@
               @chane="onFileChange"
               >
           </div> -->
-        
+
         <button>Submit</button>
       </form>
     </section>
@@ -108,7 +108,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      
+
       hotel: {
         userId: localStorage.userId,
         email: "",
@@ -128,9 +128,9 @@ export default {
     };
   },
   methods: {
-    
+
     onClick() {
-     
+
       axios
         .post("http://127.0.0.1:8000/api/hotelRegister", this.hotel)
         .then(( data ) => {

@@ -721,7 +721,7 @@
 
 
 
-  <footer> 
+  <footer>
 
     <div class="container flex1" >
 
@@ -1717,7 +1717,7 @@ footer .content {
     grid-row-end: 3;
   }
 
- 
+
   .left, .right {
     width: 100%;
   }
@@ -1738,8 +1738,6 @@ footer .content {
     display: none;
   }
 
-  /------------about------------/
-  /------------wrapper------------/
   .wrapper .container {
     max-width: 80%;
     margin: auto;
@@ -1756,7 +1754,7 @@ footer .content {
     height: 50vh;
   }
 
-  
+
   .offer .box {
     flex-direction: column;
   }
@@ -1765,7 +1763,7 @@ footer .content {
     margin: 0px;
   }
 
-  
+
   .area img {
     margin: 0px;
     width: 100%;

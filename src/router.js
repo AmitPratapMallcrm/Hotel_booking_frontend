@@ -10,6 +10,10 @@ import AuthLogin from './Login/AuthLogin.vue'
 import RegisterPage from './Customer/RegisterPage.vue'
 import AdminDashboard from './Admin/AdminDashboard.vue'
 import YourHotel from "./Hotel/YourHotel.vue"
+import HotelBookingform from "./Hotel/HotelBookingform.vue"
+import PaymentPage from "./Payment/PaymentPage.vue"
+import ErrorPage from "./Payment/ErrorPage.vue"
+import SuccessPage from "./Payment/SuccessPage.vue"
 //import store from './store/modules/admin/index.js'
 const router = createRouter({
   history: createWebHistory(),
@@ -23,6 +27,10 @@ const router = createRouter({
         {path: 'contact',component: ContactHotel},// /coaches/c1/contect
     ]},
     {path: '/register',component: HotelForm},
+    {path: '/hotel/room/payment',component: PaymentPage},
+    {path: '/hotel/room/booking',component: HotelBookingform},
+    {path: '/hotel/room/error',component: ErrorPage},
+    {path: '/hotel/room/success',component: SuccessPage},
     {path: '/room',component: RoomPage},
     {path: '/yourhotel',component: YourHotel},//, meta:{ requiresAuth: true}},
     {path: '/admin',component: AdminDashboard},//, meta:{ requireAuth : true} },
@@ -36,7 +44,7 @@ const router = createRouter({
 // {
 //    if(to.meta.requireAuth  && !store.getter.isAuthenticated )
 //    {
-     
+
 //      // router.redirect('/hotel');
 //        next('/login');
 //    }

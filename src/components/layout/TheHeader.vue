@@ -1,6 +1,6 @@
 <template>
 
-      <nav style="    display: flex;
+      <nav class="na" style="    display: flex;
     width: 99vw;
     padding: 0;
     margin: 0;">
@@ -64,6 +64,9 @@ body {
   color: #A5AAAD;
   font-size: 14px;
   font-weight: 700;
+}
+.na{
+  position: sticky;
 }
 .font-bold {
   font-weight: 700;
