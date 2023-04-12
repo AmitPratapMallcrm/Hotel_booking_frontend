@@ -1,5 +1,5 @@
 export default {
-  registerHotels(state, payload) {
-    state.hotels.push(payload);
+  sethotelid(state, payload) {
+    state.hotelid=payload.hotelid;
   }
 };

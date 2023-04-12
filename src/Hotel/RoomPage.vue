@@ -44,7 +44,7 @@
         <section class="room wrapper2 top" id="room">
           <div class="container">
             <div class="heading">
-              <h5>OUR ROOMS</h5>
+              <h5>{{ val['hotel_name'] }}</h5>
               <h2>Fascinating rooms & suites </h2>
             </div>
             <div class="content flex mtop">
@@ -294,10 +294,57 @@
         </section>
  -->
 
-
+ {{this.hotelid }}
       </div>
-
       </template>
+      <script>
+      import axios from "axios";
+      // import HotelItem from './HotelItem.vue';
+      // import HotelFilter from './HotelFilter.vue';
+      export default{
+           components: {
+              // HotelItem,
+              // HotelFilter
+           },
+             data(){
+              return {
+                  val:"",
+               hotelid: this.$store.getters.hotelid,
+                  activeFilters: {
+                      frontend:true,
+                      backend:true,
+                      career: true
+                  }
+              };
+           },
+            created(){
+              if(this.hotelid=='')
+              {
+                  this.$router.push("/");
+              }
+               var link='http://127.0.0.1:8000/api/hotelbyid/'+ this.hotelid;
+            axios
+              .get(link)
+              .then(( data ) => {
+                try {
+                this.val=data["data"]['0'];
+                   console.log("amit");
+                   console.log(this.val);
+                }
+                 catch (err) {
+                  alert("Error, please try again");
+                }
+              });
+          },
+          computed:{
+              } ,
+          methods: {
+              setFilters(updatedFilters){
+               this.activeFilters= updatedFilters;
+              }
+          }
+      };
+      </script>
 
       <style scoped>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
@@ -469,13 +516,13 @@
 
       @media only screen and (max-width:768px) {
 
-        /------------head------------/
+
         .header .head_contact,
         .logo {
           display: none;
         }
 
-        /------------head------------/
+
         header.sticky {
           height: 8vh;
         }
@@ -536,7 +583,6 @@
         }
       }
 
-      /------------home------------/
       .grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -602,8 +648,7 @@
         margin-top: 5px;
       }
 
-      /------------home------------/
-      /------------about------------/
+
       .top {
         margin-top: 80px;
       }
@@ -698,8 +743,7 @@
         width: 100%;
       }
 
-      /------------about------------/
-      /------------wrapper------------/
+
       .wrapper {
         background-image: url("../img/w.jpg");
         height: 80vh;
@@ -760,8 +804,7 @@
         color: white;
       }
 
-      /------------wrapper------------/
-      /------------wrapper2------------/
+
       .wrapper2 {
         position: relative;
         text-align: center;
@@ -822,8 +865,7 @@
         z-index: 2;
       }
 
-      /------------wrapper2------------/
-      /------------room------------/
+
       .room {
         margin-bottom: 50px;
         position: relative;
@@ -852,8 +894,7 @@
         padding: 0;
       }
 
-      /------------room------------/
-      /------------timer------------/
+
       .timer {
         position: relative;
         text-align: center;
@@ -913,8 +954,7 @@
         letter-spacing: 3px;
       }
 
-      /------------timer------------/
-      /------------offer------------/
+
       .offer img {
         width: 100%;
         height: 100%;
@@ -951,8 +991,6 @@
         transform: translateY(-10px);
       }
 
-      /------------offer------------/
-      /------------area------------/
       .area img {
         margin: 0px 0 20px -125px;
       }
@@ -981,8 +1019,7 @@
         z-index: -1;
       }
 
-      /------------area------------/
-      /------------offer2------------/
+
       .offer2 .heading {
         padding-top: 10%;
         text-align: center;
@@ -1046,8 +1083,7 @@
         color: #5c646e;
       }
 
-      /------------offer2------------/
-      /------------customer------------/
+
       .customer .mtop {
         padding: 30px;
         max-width: 60%;
@@ -1087,8 +1123,7 @@
         opacity: 0.7;
       }
 
-      /------------customer------------/
-      /------------gallary------------/
+
       .gallary .item {
         position: relative;
         cursor: pointer;
@@ -1122,8 +1157,7 @@
         cursor: pointer;
       }
 
-      /------------gallary------------/
-      /------------blog------------/
+
       .blog .grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -1187,14 +1221,11 @@
         font-size: 15px;
       }
 
-      /------------blog------------/
-      /------------map------------/
+
       .map iframe {
         width: 100%;
       }
 
-      /------------map------------/
-      /------------footer------------/
       footer {
         background: black;
         color: white;
@@ -1257,10 +1288,9 @@
         border-top: 2px solid rgba(255, 255, 255, 0.2);
       }
 
-      /------------footer------------/
+
       @media only screen and (max-width:768px) {
 
-        /------------home------------/
         footer .grid,
         .blog .grid,
         .offer2 .grid,
@@ -1291,8 +1321,7 @@
           grid-row-end: 3;
         }
 
-        /------------home------------/
-        /------------about------------/
+
         .left, .right {
           width: 100%;
         }
@@ -1313,27 +1342,24 @@
           display: none;
         }
 
-        /------------about------------/
-        /------------wrapper------------/
+
         .wrapper .container {
           max-width: 80%;
           margin: auto;
         }
 
-        /------------wrapper2------------/
-        /------------room------------/
+
         .room img {
           margin: 0;
           margin-top: 50px;
         }
 
-        /------------room------------/
-        /------------timer------------/
+      
         .timer.wrapper {
           height: 50vh;
         }
 
-      
+
         .offer .box {
           flex-direction: column;
         }
@@ -1342,18 +1368,18 @@
           margin: 0px;
         }
 
-    
+
         .area img {
           margin: 0px;
           width: 100%;
         }
 
-       
+
         .offer2.wrapper {
           height: 100vh;
         }
 
-        
+
         .customer .mtop {
           max-width: 100%;
         }
@@ -1428,7 +1454,7 @@
           height: 100%;
         }
 
-        
+
         .wrapper .container {
           max-width: 90%;
         }

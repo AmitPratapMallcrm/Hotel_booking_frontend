@@ -31,7 +31,7 @@ const router = createRouter({
     {path: '/hotel/room/booking',component: HotelBookingform},
     {path: '/hotel/room/error',component: ErrorPage},
     {path: '/hotel/room/success',component: SuccessPage},
-    {path: '/room',component: RoomPage},
+    {path: '/hotel/room',component: RoomPage},//change1
     {path: '/yourhotel',component: YourHotel},//, meta:{ requiresAuth: true}},
     {path: '/admin',component: AdminDashboard},//, meta:{ requireAuth : true} },
     {path: '/requests',component: RequestHotel},
