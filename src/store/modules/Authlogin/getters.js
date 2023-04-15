@@ -2,10 +2,11 @@ export default {
     userId(state) {
       return state.userId;
     },
-    student(state)
+    userName(state)
     {
-        return state.student;
+        return state.userName;
     },
+
     token(state) {
       return state.token;
     },

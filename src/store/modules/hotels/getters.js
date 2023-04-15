@@ -2,6 +2,9 @@ export default {
   hotelid(state) {
     return state.hotelid;
   },
+  amount(state) {
+    return state.amount;
+  },
   hasHotels(state) {
     return state.hotels && state.hotels.length > 0;
   },

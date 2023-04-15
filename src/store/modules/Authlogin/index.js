@@ -8,6 +8,7 @@ export default {
       userId: localStorage.userId,
       tokenId: null,
       roleId: null,
+      userName: null,
       didAutoLogout: false,
       isauth: false,
       student: {

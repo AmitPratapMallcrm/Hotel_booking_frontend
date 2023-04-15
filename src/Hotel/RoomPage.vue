@@ -135,10 +135,17 @@
                   </div>
                   <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                   <h5>From $50.6/night</h5>
-                  <button class="flex1">
-                    <span>Check Availability</span>
-                    <i class="fas fa-arrow-circle-right"></i>
-                  </button>
+                 <button class="flex1"  v-if="count1>0">
+                    <span class="flex1">{{count1}} </span>
+                    </button>
+                  <br>
+                    <button class="flex1"  @click="add1">
+                    <span>add to list </span>
+                     </button>
+                      <br>
+                     <button class="flex1"  @click="sub1" v-if="count1>0">
+                    <span>Remove from list </span>
+                     </button>
                 </div>
               </div>
               <div class="box flex">
@@ -146,7 +153,7 @@
                   <img src="../img/o2.jpg" alt="">
                 </div>
                 <div class="right">
-                  <h4>Deluxe Room</h4>
+                  <h4>LARGE Room</h4>
                   <div class="rate flex">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -156,39 +163,26 @@
                   </div>
                   <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                   <h5>From $50.6/night</h5>
-                  <button class="flex1">
-                    <span>Check Availability</span>
-                    <i class="fas fa-arrow-circle-right"></i>
-                  </button>
+                 <button class="flex1"  v-if="count2>0">
+                    <span class="flex1">{{count2}} </span>
+                    </button>
+                     <br>
+                    <button class="flex1"  @click="add2">
+                    <span>add to list </span>
+                     </button>
+                      <br>
+                     <button class="flex1"  @click="sub2" v-if="count2>0" >
+                    <span>Remove from list </span>
+                     </button>
                 </div>
               </div>
-              <div class="box flex">
-                <div class="left">
-                  <img src="../img/o3.jpg" alt="">
-                </div>
-                <div class="right">
-                  <h4>Deluxe Room</h4>
-                  <div class="rate flex">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <h5>From $50.6/night</h5>
-                  <button class="flex1">
-                    <span>Check Availability</span>
-                    <i class="fas fa-arrow-circle-right"></i>
-                  </button>
-                </div>
-              </div>
+
               <div class="box flex">
                 <div class="left">
                   <img src="../img/o4.jpg" alt="">
                 </div>
                 <div class="right">
-                  <h4>Deluxe Room</h4>
+                  <h4>SMALL Room</h4>
                   <div class="rate flex">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -198,14 +192,29 @@
                   </div>
                   <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                   <h5>From $50.6/night</h5>
-                  <button class="flex1">
-                    <span>Check Availability</span>
-                    <i class="fas fa-arrow-circle-right"></i>
-                  </button>
+                  <button class="flex1" v-if="count3>0">
+                    <span class="flex1" >{{count3}} </span>
+                    </button>
+                  <br>
+                    <button class="flex1"  @click="add3">
+                    <span>add to list </span>
+                     </button>
+                     <br>
+                     <button class="flex1"  @click="sub3" v-if="count3>0">
+                    <span>Remove from list </span>
+                     </button>
+
+                    
+                
+
                 </div>
-              </div>
-            </div>
+             
           </div>
+           </div>
+           <br><br>
+              <button v-if="total>0" >Total Amount: {{total}}</button>
+              <button v-if="total>0" @click="redirect"> Procees To Book</button>
+            </div>
         </section>
 
         <section class="area top">
@@ -239,76 +248,27 @@
           </div>
         </section>
 
-        <!-- <section class="offer2 about wrapper timer top" id="shop">
-          <div class="container">
-            <div class="heading">
-              <h5>EXCLUSIVE OFFERS </h5>
-              <h3>You can get an exclusive offer </h3>
-            </div>
-
-            <div class="content grid  top">
-              <div class="box">
-                <h5>UP TO 30% OFF</h5>
-                <h3>Swimming for man</h3>
-                <span>4.5 <label>(432 Reviews)</label> </span>
-                <p>Swimming doller dolor sit aet odu tur adiing elitse</p>
-                <div class="flex">
-                  <i class="fal fa-alarm-clock"> Duration: 2Hours</i>
-                  <i class="far fa-dot-circle"> 18+ years</i>
-                </div>
-                <button class="flex1">
-                  <span>Check Availability</span>
-                  <i class="fas fa-arrow-circle-right"></i>
-                </button>
-              </div>
-              <div class="box">
-                <h5>UP TO 30% OFF</h5>
-                <h3>Swimming for man</h3>
-                <span>4.5 <label>(432 Reviews)</label> </span>
-                <p>Swimming doller dolor sit aet odu tur adiing elitse</p>
-                <div class="flex">
-                  <i class="fal fa-alarm-clock"> Duration: 2Hours</i>
-                  <i class="far fa-dot-circle"> 18+ years</i>
-                </div>
-                <button class="flex1">
-                  <span>Check Availability</span>
-                  <i class="fas fa-arrow-circle-right"></i>
-                </button>
-              </div>
-              <div class="box">
-                <h5>UP TO 30% OFF</h5>
-                <h3>Swimming for man</h3>
-                <span>4.5 <label>(432 Reviews)</label> </span>
-                <p>Swimming doller dolor sit aet odu tur adiing elitse</p>
-                <div class="flex">
-                  <i class="fal fa-alarm-clock"> Duration: 2Hours</i>
-                  <i class="far fa-dot-circle"> 18+ years</i>
-                </div>
-                <button class="flex1">
-                  <span>Check Availability</span>
-                  <i class="fas fa-arrow-circle-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
- -->
-
  {{this.hotelid }}
       </div>
       </template>
       <script>
       import axios from "axios";
-      // import HotelItem from './HotelItem.vue';
-      // import HotelFilter from './HotelFilter.vue';
       export default{
            components: {
-              // HotelItem,
-              // HotelFilter
+             
            },
              data(){
               return {
+                  room1: 500,
+                   room2: 1000,
+                    room3: 1500,
+                    total: 0,
+                    count1:0,
+                     count2:0,
+                      count3:0,
+
                   val:"",
+                  id: this.$store.getters.hotelid,
                hotelid: this.$store.getters.hotelid,
                   activeFilters: {
                       frontend:true,
@@ -341,7 +301,44 @@
           methods: {
               setFilters(updatedFilters){
                this.activeFilters= updatedFilters;
+              },
+              add1()
+              {
+                  this.total=this.total+this.room1;
+                  this.count1++;
+              },
+               add2()
+              {
+                   this.total=this.total+this.room2;
+                  this.count2++;
+              },
+               add3()
+              {
+                  this.total=this.total+this.room3;
+                  this.count3++;
+              },
+               sub1()
+              {
+                  this.total=this.total-this.room1;
+                  this.count1--;
+              },
+               sub2()
+              {
+                   this.total=this.total-this.room2;
+                  this.count2--;
+              },
+               sub3()
+              {
+                  this.total=this.total-this.room3;
+                  this.count3--;
+              },
+               redirect()
+              {
+                  this.$store.commit('setamount',{ amount: this.total*100});
+                    this.$router.push('/bookingform');
+             // this.$router.push('/hotel/room/payment');
               }
+              
           }
       };
       </script>

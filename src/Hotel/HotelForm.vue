@@ -64,40 +64,6 @@
           </div>
         </div>
 
-          <!-- <label for="img">image1</label>
-          <div>
-            <input type="file"
-              name="img"
-              id="image"
-              accept=".png, .jpg, .jpeg"
-              :maxFileSize="1000000"
-              ref="fileInput"
-              @chane="onFileChange"
-              >
-          </div>
-          <label for="img">image2</label>
-          <div>
-            <input type="file"
-              name="img"
-              id="image"
-              accept=".png, .jpg, .jpeg"
-              :maxFileSize="1000000"
-              ref="fileInput"
-              @chane="onFileChange"
-              >
-          </div>
-          <label for="img">image3</label>
-          <div>
-            <input type="file"
-              name="img"
-              id="image"
-              accept=".png, .jpg, .jpeg"
-              :maxFileSize="1000000"
-              ref="fileInput"
-              @chane="onFileChange"
-              >
-          </div> -->
-
         <button>Submit</button>
       </form>
     </section>

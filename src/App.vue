@@ -14,6 +14,7 @@
 import axios from 'axios';
 import TheHeader from './components/layout/TheHeader.vue';
 export default {
+ 
   components: {
     TheHeader,
   },
@@ -21,6 +22,7 @@ export default {
     return {
       role: '',
       mail: '',
+      userName: '',
       result: {},
       student: {
         api_token: localStorage.token,
@@ -37,11 +39,13 @@ export default {
             this.role = data;
             this.mail = this.student.email;
             this.role = data['users']['0']['role_id'];
+             this.userName= data['users']['0']['name'];
             this.api_token = data['users']['0']['api_token'];
             this.user_id = data['users']['0']['id'];
             console.log(this.api_token);
             console.log(this.role);
             this.$emit('postcreated');
+            console.log(this.userName);
             // if (this.role === '3') {
             //   alert('Login Successfully as Customer');
             //   this.$router.push('/hotel');
@@ -57,6 +61,8 @@ export default {
             // } else {
             //   alert('Login failed');
             // }
+             // this.$store.commit('setName',{userName: this.userName});
+            this.$store.commit('loginhogya');
             this.$store.dispatch('set', {
               tokenId: this.api_token,
               userId: this.user_id,
@@ -67,6 +73,7 @@ export default {
               userId: this.user_id,
               roleId: this.role,
             });
+             this.$store.commit('setName',{userName: this.userName});
             this.$store.commit('loginhogya');
           } catch (err) {
             alert('Error, please try again');

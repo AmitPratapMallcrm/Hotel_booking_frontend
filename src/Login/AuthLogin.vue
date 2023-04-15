@@ -37,14 +37,17 @@
       </div>
     </div>
 </div>
+  
 </template>
   <script>
+
 import axios from "axios";
 export default {
   data() {
     return {
       role: '',
       mail: "",
+      userName: "",
       result: {},
       student: {
         email: "",
@@ -53,7 +56,9 @@ export default {
       },
     };
   },
+ 
   methods: {
+     
     onLogin() {
       axios
         .post("http://127.0.0.1:8000/api/login", this.student)
@@ -61,10 +66,12 @@ export default {
           try {
            this.mail= this.student.email;
                  this.role= data['users']['0']['role_id'];
+                  this.userName= data['users']['0']['name'];
                   this.api_token= data['users']['0']['api_token'];
                   this.user_id= data['users']['0']['id'];
                   console.log(this.api_token);
                   console.log(this.role);
+                  console.log(this.userName);
                     this.$emit('postcreated');
                       if (this.role === '3' ) {
                alert("Login Successfully as Customer");
@@ -87,7 +94,9 @@ export default {
             }
             this.$store.dispatch('set',{ tokenId:this.api_token, userId:this.user_id,roleId:this.role});
               this.$store.commit('setapp',{ tokenId:this.api_token, userId:this.user_id,roleId:this.role});
+               this.$store.commit('setName',{userName:this.userName});
              this.$store.commit('loginhogya');
+            
           } catch (err) {
             alert("Error, please try again");
           }

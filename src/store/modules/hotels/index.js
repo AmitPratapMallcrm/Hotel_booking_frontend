@@ -6,7 +6,8 @@ export default {
  
   state() {
     return {
-      hotelid:''
+      hotelid:'',
+      amount:''
     };
   },
   mutations,

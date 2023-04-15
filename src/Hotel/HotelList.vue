@@ -438,7 +438,7 @@
         methods:{
           show(hotel){
              this.$store.commit('sethotelid',{ hotelid:hotel.id});
-              this.$router.push('/hotel/room');
+              this.$router.push('/hotel/'+ hotel.id);
            },
     getPosts()
    {

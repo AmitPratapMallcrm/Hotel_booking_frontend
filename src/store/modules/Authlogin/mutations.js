@@ -4,6 +4,10 @@ export default {
       state.userId = payload.userId;
       state.didAutoLogout = false;
     },
+    setName(state,payload)
+    {
+      state.userName = payload.userName;
+    },
     setAutoLogout(state) {
       state.didAutoLogout = true;
     },

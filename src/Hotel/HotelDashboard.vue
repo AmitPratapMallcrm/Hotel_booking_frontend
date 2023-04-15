@@ -6,7 +6,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                     <div class="d-flex align-items-center">
                         <!-- <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i> -->
-                        <h2 class="fs-2 m-0">Admin Dashboard</h2>
+                        <h2 class="fs-2 m-0">Hotel Dashboard</h2>
                     </div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -54,20 +54,6 @@
                                 <i class="fas fa-solid fa-check fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                         </div>
-                        <div class="col-md-4">
-              <div
-                class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded"
-              >
-                <div>
-                  <h3 class="fs-2">%25</h3>
-                  <p class="fs-5">Register Hotel On App</p>
-                </div>
-                <i @click="callcomponent()"
-                  class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3 "
-                ></i>
-              </div>
-            </div>
-
                     </div>
                     <div class="row my-5">
                         <h3 class="fs-4 mb-3">Users</h3>
@@ -266,11 +252,7 @@ export default {
             alert("Deleteddd");
             this.UserLoad();
             this.UserCount();
-        },
-
-        callcomponent(){
-      this.$router.push('/createhotel');
-    }
+        }
     }
 }
 </script>

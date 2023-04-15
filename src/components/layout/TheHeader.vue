@@ -10,9 +10,11 @@
        <router-link to="/logout" @click="logoutapp" v-if="addone()===true" > Logout </router-link>
 
   <div style="position:absolute; right:0">
+     <router-link to="/registerpage" v-if="addone()===false">user </router-link>
+       <router-link to="/user/profile"  v-if="addone()===true" >  {{ this.$store.getters.userName}}  </router-link>
+
     <a href="" style="width:40px">
-      <img src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-profile-line-black-icon-png-image_691051.jpg" style="height:30px;width:30px;border-radius:50px">
-      <a style="margin:0; width:80px; color: wheat;">Vivek</a>
+      <img src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-profile-line-black-icon-png-image_691051.jpg" style="height:30px;width:30px;border-radius:50px"/>
     </a>
 
 
@@ -22,14 +24,25 @@
 </template>
 <script>
 export default {
+  data(){
+    return(
+      {
+         name: this.$store.getters.userName
+      }
+    )
+  },
 methods :{
+    
+ 
     addone(){
        return this.$store.getters.isauth;
     },
     logoutapp()
     {
+      
           this.$store.commit('logout1');
          this.$store.dispatch('logout');
+         this.checklogin();
     }
 }
 };
