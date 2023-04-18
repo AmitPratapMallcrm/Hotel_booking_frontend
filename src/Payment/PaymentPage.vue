@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="col">
-                <h3 class="title">payment</h3>
+                <h3 class="title">payment of amount : ${{amount}}</h3>
                 <div class="inputBox">
                     <span>cards accepted :</span>
                     <img src="../img/pp.png" alt="">
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <button class="submit-btn">"proceed to checkout"</button>
+        <button class="submit-btn">proceed to pay ${{amount}}</button>
       
     </form>
 </div>
@@ -75,7 +75,6 @@ import axios from "axios";
 export default {
   data() {
     return {
-
       detail: {
       hotelid: this.$store.getters.hotelid,
       userId: localStorage.userId,
@@ -93,12 +92,14 @@ export default {
         cvv:"",
         bol:false
       },
+      amount:this.$store.getters.amount/100,
     };
   },
   methods: {
+    
 
     async onClick() {
-     //  this.$router.push("/")
+    
      await  axios
         .post("http://127.0.0.1:8000/api/payment", this.detail)
         .then(( data ) => {

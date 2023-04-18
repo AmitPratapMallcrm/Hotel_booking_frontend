@@ -30,8 +30,11 @@ export default {
       },
     };
   },
+ 
   created() {
     if (localStorage.token != 'NULL') {
+      console.log(localStorage.userId);
+      console.log(localStorage.userId);
       axios
         .post('http://127.0.0.1:8000/api/tokenvalidate', this.student)
         .then(({ data }) => {
@@ -46,22 +49,6 @@ export default {
             console.log(this.role);
             this.$emit('postcreated');
             console.log(this.userName);
-            // if (this.role === '3') {
-            //   alert('Login Successfully as Customer');
-            //   this.$router.push('/hotel');
-            // } else if (this.role === '1') {
-            //   alert('Login Successfully as Admin');
-            //   this.$router.push('/admin');
-            // } else if (this.role === '2') {
-            //   alert('Login Successfully as Hotel');
-            //   this.$router.push('/yourhotel`');
-            // } else if (this.check === true) {
-            //   alert('Login Successfully');
-            //   this.$router.push('/');
-            // } else {
-            //   alert('Login failed');
-            // }
-             // this.$store.commit('setName',{userName: this.userName});
             this.$store.commit('loginhogya');
             this.$store.dispatch('set', {
               tokenId: this.api_token,

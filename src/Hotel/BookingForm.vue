@@ -19,7 +19,7 @@
                         </div>
                         <div class="input-field">
                             <label>Any Message</label>
-                            <input type="text" placeholder="Enter your ccupation" >
+                            <input type="text" placeholder="Enter your ccupation" v-model="message" >
                         </div>
                          <div class="input-field">
                             <label>Arrival Date</label>
@@ -52,14 +52,16 @@ export default{
            date:"",
            day:"",
            arrivaldate:"",
-           departuredate:""
-         
+           departuredate:"",
+           message:"",
+             diffdays:"",
+             price:"",
+             
 
         };
     },
      methods:{
 
-     // redirect()
      async onClick()
               {
         this.today=new Date()
@@ -67,18 +69,29 @@ export default{
         this.mm=String(this.today.getMonth()+1).padStart(2,"0"); 
         this.yyyy=this.today.getFullYear();
         this.day= this.yyyy+"-"+this.mm+"-"+this.dd;
-        console.log("dfghjkiol");
-     
         console.log(this.day);
         console.log(this.arrivaldate);
         console.log(this.departuredate);
+        
         if(this.day>this.arrivaldate||this.arrivaldate>=this.departuredate)
         {
+             
             alert("please select the correct date");
            
         }
         else
+        {
+ this.diffdays=new Date(this.departuredate)-new Date(this.arrivaldate);
+         this.diffdays=this.diffdays/86400000;
+         this.price=this.$store.getters.amount,
+         this.price=this.price*this.diffdays
+        
+         this.$store.commit('setamount',{ amount: this.price});
+this.$store.commit('setarival',{ arival:this.arrivaldate});
+this.$store.commit('setdeparture',{ departure:this.departuredate});
+this.$store.commit('setmessage',{ message:this.message});
         this.$router.push('/payment');
+        }
               
           
               }

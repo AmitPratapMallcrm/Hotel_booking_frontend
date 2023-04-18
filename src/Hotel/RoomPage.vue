@@ -1,50 +1,9 @@
 <template>
-
-
       <div>
-
-
-        <!-- <section class="wrapper2">
-          <div class="container">
-            <div class="heading mtop">
-              <h5>FACILITIES</h5>
-              <h2>Giving entirely awesome </h2>
-            </div>
-
-            <div class="content grid mtop">
-              <div class="box">
-                <i class="fas fa-shipping-fast"></i>
-                <h3>Pick Up & Drop</h3>
-                <p>parkn ipsum dolor sit amet, consectetur adiing elit sed do eiu</p>
-                <span class='far fa-long-arrow-alt-right'></span>
-              </div>
-              <div class="box">
-                <i class="fas fa-mug-hot"></i>
-                <h3>Pick Up & Drop</h3>
-                <p>parkn ipsum dolor sit amet, consectetur adiing elit sed do eiu</p>
-                <span class='far fa-long-arrow-alt-right'></span>
-              </div>
-              <div class="box">
-                <i class="fas fa-car"></i>
-                <h3>Pick Up & Drop</h3>
-                <p>parkn ipsum dolor sit amet, consectetur adiing elit sed do eiu</p>
-                <span class='far fa-long-arrow-alt-right'></span>
-              </div>
-              <div class="box">
-                <i class="far fa-water"></i>
-                <h3>Pick Up & Drop</h3>
-                <p>parkn ipsum dolor sit amet, consectetur adiing elit sed do eiu</p>
-                <span class='far fa-long-arrow-alt-right'></span>
-              </div>
-            </div>
-          </div>
-        </section> -->
-
 
         <section class="room wrapper2 top" id="room">
           <div class="container">
             <div class="heading">
-              <h5>{{ val['hotel_name'] }}</h5>
               <h2>Fascinating rooms & suites </h2>
             </div>
             <div class="content flex mtop">
@@ -98,20 +57,6 @@
             <div id="time" class="flex1 mtop"> </div>
           </div>
         </section>
-        <!-- <script src="js/jquery.countdown.js" charset="utf-8"></script>
-        <script src="js/jquery.countdown.min.js" charset="utf-8"></script>
-        <script type="text/javascript">
-          $('#time').countdown('2024/01/01', function(event) {
-            $(this).html(event.strftime(
-              '<div class="clock"><span>%d</span> <p>Days</p></div> ' +
-              '<div class="clock"><span>%H</span> <p>Hours</p></div> ' +
-              '<div class="clock"><span>%M</span> <p>Minutes</p></div> ' +
-              '<div class="clock"><span>%S</span> <p>Seconds</p></div> '
-            ));
-          });
-        </script> -->
-
-
         <section class="offer mtop" id="services">
           <div class="container">
             <div class="heading">
@@ -133,8 +78,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <h5>From $50.6/night</h5>
+                  <p> {{this.facilities1}}</p>
+                  <h5>From ${{this.room1}}/night</h5>
                  <button class="flex1"  v-if="count1>0">
                     <span class="flex1">{{count1}} </span>
                     </button>
@@ -161,8 +106,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <h5>From $50.6/night</h5>
+                  <p> {{this.facilities2}}</p>
+                  <h5>From ${{this.room2}}/night</h5>
                  <button class="flex1"  v-if="count2>0">
                     <span class="flex1">{{count2}} </span>
                     </button>
@@ -190,8 +135,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <h5>From $50.6/night</h5>
+                  <p> {{this.facilities2}}</p>
+                  <h5>From ${{this.room1}}/night</h5>
                   <button class="flex1" v-if="count3>0">
                     <span class="flex1" >{{count3}} </span>
                     </button>
@@ -212,7 +157,7 @@
           </div>
            </div>
            <br><br>
-              <button v-if="total>0" >Total Amount: {{total}}</button>
+              <button v-if="total>0" >Total Amount: ${{total}}/night</button>
               <button v-if="total>0" @click="redirect"> Procees To Book</button>
             </div>
         </section>
@@ -235,14 +180,14 @@
                   <li>Conference room</li>
                 </ul>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Duis
-                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <button class="flex1">
-                  <span>Check Availability</span>
-                  <i class="fas fa-arrow-circle-right"></i>
-                </button>
+              <p>Welcome to our hotel website! Our hotel offers a luxurious dining experience at our restaurant, where our
+              talented chefs prepare exquisite dishes using only the freshest and finest ingredients. Whether you are in
+              the mood for a hearty meal or something lighter, our menu has something for everyone.</p>
+            <p>In addition to our exceptional dining, we also have a beautiful swimming pool on site for our guests to
+              enjoy. Surrounded by lush greenery and comfortable loungers, our pool is the perfect place to unwind and
+              soak up some sun. Whether you want to swim laps or just relax with a good book, our pool is the perfect
+              place to do it.</p>
+              
               </div>
             </div>
           </div>
@@ -259,9 +204,12 @@
            },
              data(){
               return {
-                  room1: 500,
-                   room2: 1000,
-                    room3: 1500,
+                  room1: "",
+                   room2: "",
+                    room3: "",
+                  facilities1: "",
+                   facilities2: "",
+                    facilities3: "",
                     total: 0,
                     count1:0,
                      count2:0,
@@ -282,14 +230,20 @@
               {
                   this.$router.push("/");
               }
-               var link='http://127.0.0.1:8000/api/hotelbyid/'+ this.hotelid;
+               var link='http://127.0.0.1:8000/api/roombyid/'+ this.hotelid;
             axios
               .get(link)
               .then(( data ) => {
                 try {
-                this.val=data["data"]['0'];
-                   console.log("amit");
-                   console.log(this.val);
+                    
+                   console.log(this.hotelid);
+                   console.log(data["data"]);
+                   this.room1=data["data"][0]["price"];
+                   this.room2=data["data"][1]["price"];
+                   this.room3=data["data"][2]["price"];
+                    this.facilities1=data["data"][0]["facilities"];
+                    this.facilities2=data["data"][1]["facilities"];
+                    this.facilities3=data["data"][2]["facilities"];
                 }
                  catch (err) {
                   alert("Error, please try again");
@@ -334,9 +288,12 @@
               },
                redirect()
               {
-                  this.$store.commit('setamount',{ amount: this.total*100});
+this.$store.commit('setamount',{ amount: this.total*100});
+this.$store.commit('setnumberofroomtype1',{ numberofroomtype1:this.count1});
+this.$store.commit('setnumberofroomtype2',{ numberofroomtype2:this.count2});
+this.$store.commit('setnumberofroomtype3',{ numberofroomtype3:this.count3});
                     this.$router.push('/bookingform');
-             // this.$router.push('/hotel/room/payment');
+            
               }
               
           }

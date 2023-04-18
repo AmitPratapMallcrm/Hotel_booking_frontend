@@ -30,7 +30,7 @@
           </div>
            <div class="mt-3">
                 <button type="submit" class="btn btn-primary">
-                    Create acount
+                    Login
                 </button>
             </div>
         </form>
@@ -56,7 +56,7 @@ export default {
       },
     };
   },
- 
+  
   methods: {
      
     onLogin() {

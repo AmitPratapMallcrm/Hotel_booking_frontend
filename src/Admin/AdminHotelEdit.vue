@@ -61,83 +61,88 @@
                  <input type="number" placeholder="total number available room" required v-model.trim="hotel.availroom"/>
               </div>
             </div>
-              <!-- <label for="img">image1</label>
-              <div>
-                <input type="file"
-                  name="img"
-                  id="image"
-                  accept=".png, .jpg, .jpeg"
-                  :maxFileSize="1000000"
-                  ref="fileInput"
-                  @chane="onFileChange"
-                  >
-              </div>
-              <label for="img">image2</label>
-              <div>
-                <input type="file"
-                  name="img"
-                  id="image"
-                  accept=".png, .jpg, .jpeg"
-                  :maxFileSize="1000000"
-                  ref="fileInput"
-                  @chane="onFileChange"
-                  >
-              </div>
-              <label for="img">image3</label>
-              <div>
-                <input type="file"
-                  name="img"
-                  id="image"
-                  accept=".png, .jpg, .jpeg"
-                  :maxFileSize="1000000"
-                  ref="fileInput"
-                  @chane="onFileChange"
-                  >
-              </div> -->
             <button>Submit</button>
           </form>
         </section>
       </div>
     </template>
-    <script>
-    import axios from "axios";
-    export default {
-      data() {
-        return {
-          hotel: {
-            userId: localStorage.userId,
-            email: "",
-             name:"",
-            number:"",
-            wifi:"",
-            available:"",
-            address:" ",
-            city:"",
-            prices:"",
-            pricel:"",
-            priced:"",
-            country:"",
-            district:"",
-            availroom:"",
+   
+     <script>
+      import axios from "axios";
+      export default{
+           
+             data(){
+              return {
+                 hotel: {
+        userId: localStorage.userId,
+        email: "",
+         name:"",
+        number:"",
+        wifi:"",
+        available:"",
+        address:" ",
+        city:"",
+        prices:"",
+        pricel:"",
+        priced:"",
+        country:"",
+        district:"",
+        availroom:"",
+      },
+                  room1: 500,
+                   room2: 1000,
+                    room3: 1500,
+                    total: 0,
+                    count1:0,
+                     count2:0,
+                      count3:0,
+
+                  val:"",
+                  id: this.$store.getters.hotelid,
+               hotelid: this.$store.getters.hotelid,
+                  activeFilters: {
+                      frontend:true,
+                      backend:true,
+                      career: true
+                  }
+              };
+           },
+         
+            created(){
+              if(this.hotelid=='')
+              {
+                  this.$router.push("/");
+              }
+               var link='http://127.0.0.1:8000/api/hotelbyid/'+ this.hotelid;
+            axios
+              .get(link)
+              .then(( data ) => {
+                try {
+                this.val=data["data"]['0'];
+                   console.log("amit");
+                   console.log(this.val);
+                   this.hotel.name=this.val['hotel_name']
+                   this.hotel.email=this.val['email']
+                   this.hotel.number=this.val['phonenumber']
+                   this.hotel.wifi=this.val['wifi']
+                   this.hotel.available=this.val['availability']
+                   this.hotel.address=this.val['hotel_name']
+                   this.hotel.city=this.val['hotel_name']
+                   this.hotel.prices=this.val['hotel_name']
+                   this.hotel.pricel=this.val['hotel_name']
+                   this.hotel.priced=this.val['hotel_name']
+                   this.hotel.country=this.val['hotel_name']
+                   this.hotel.district=this.val['hotel_name']
+                   this.hotel.availroom=this.val['availroom']
+
+                }
+                 catch (err) {
+                  alert("Error, please try again");
+                }
+              });
           },
-        };
-      },
-      methods: {
-        onClick() {
-          axios
-            .post("http://127.0.0.1:8000/api/hotelRegister", this.hotel)
-            .then(( data ) => {
-              try {
-                 alert(data);
-                 alert('hotel register successfully');
-              }
-               catch (err) {
-                alert("Error, please try again");
-              }
-            });
-         },
-      },
-    };
+           
+      }
     </script>
     <style scoped>
     /* Import Google font - Poppins */

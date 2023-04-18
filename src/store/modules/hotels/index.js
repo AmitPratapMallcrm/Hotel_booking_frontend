@@ -7,7 +7,15 @@ export default {
   state() {
     return {
       hotelid:'',
-      amount:''
+      amount:'',
+      arival : "",
+      departure: "",
+      message: "",
+      numberofroomtype1: "",
+      numberofroomtype2: "",
+      numberofroomtype3: "",
+      user_id:localStorage.userId,
+
     };
   },
   mutations,

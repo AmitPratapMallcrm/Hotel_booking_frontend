@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <img class="wave" src="img/wave.png" /> -->
     <div class="container">
       <div class="img">
         <img src="../img/bg.svg" />
@@ -67,6 +66,7 @@ export default {
       email: '',
       role_id: '3',
       isSuccess: false,
+      user_id: ''
     };
   },
   methods: {
@@ -81,6 +81,18 @@ export default {
         .then((response) => {
           this.isSuccess = true;
           console.log(response);
+          this.user_id=response["data"]["id"];
+           console.log( this.user_id);
+
+            axios
+        .post(`http://127.0.0.1:8000/api/customer`,{
+          location: 'NA',
+          phonenumber: 'NA',
+          addharnumber: 'NA',
+          user_id:this.user_id,
+
+             
+        })
           this.$router.push('/login');
           this.$emit('postcreated');
         });

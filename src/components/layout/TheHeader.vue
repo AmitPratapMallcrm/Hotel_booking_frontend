@@ -1,6 +1,6 @@
 <template>
 
-      <nav class="na" style="    display: flex;
+      <nav class="na" style=" display: flex;
     width: 99vw;
     padding: 0;
     margin: 0;">
@@ -465,7 +465,7 @@ nav {
 	width: 590px;
 	height: 50px;
 	background-color: #34495e;
-	border-radius: 8px;
+	border-radius: 0px;
 	font-size: 0;
 }
 nav a {

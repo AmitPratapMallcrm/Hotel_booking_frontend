@@ -1,6 +1,6 @@
 <template>
       <div>
-    <!-- <a href="#" class="trigger_popup" id="success_trigger">Success</a> -->
+   
     <div class="" id="">
       <div class="">
         <div class="imgbox">
@@ -16,7 +16,60 @@
       </div>
 </template>
 <script>
+import axios from "axios";
 export default{
+    data()
+    {
+        return{
+            booking: {
+             price:this.$store.getters.amount,
+             arival:this.$store.getters.arival,
+             departure:this.$store.getters.departure,
+             message:this.$store.getters.message,
+             numberofroomtype1:this.$store.getters.numberofroomtype1,
+             numberofroomtype2:this.$store.getters.numberofroomtype2,
+             numberofroomtype3:this.$store.getters.numberofroomtype3,
+             hotel_id:this.$store.getters.hotelid,
+             customer_id:localStorage.userId,
+             },
+             payment:{
+             booking_id:"",
+             amount:this.$store.getters.amount,
+             }
+        }
+    },
+   async created(){
+        
+    await  axios
+        .post("http://127.0.0.1:8000/api/booking", this.booking)
+        .then(( data ) => {
+          try {
+             console.log(data);
+             this.payment.booking_id=data["data"]["id"];
+             console.log(this.payment.booking_id);
+            
+          }
+           catch (err) {
+            alert("Error, please try again");
+          }
+        });
+          axios
+        .post("http://127.0.0.1:8000/api/paymentdetail", this.payment)
+        .then(( data ) => {
+          try {
+            console.log(data);
+
+            
+          }
+           catch (err) {
+            alert("Error, please try again");
+          }
+        });
+
+
+    },
+        
+    
 methods: {
       redirecttohome(){
             this.$router.push('/');

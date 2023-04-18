@@ -52,7 +52,7 @@ methods: {
         .then((response) => {
           this.isSuccess = true;
           console.log(response);
-          this.$router.push('/hoteldashboard');
+          this.$router.push('/admin');
         });
     },
 //     gotohoteldash()

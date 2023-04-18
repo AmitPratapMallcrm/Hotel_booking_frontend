@@ -1,69 +1,303 @@
- <template>
-<div>
-<section class="container">
+<template>
+  <div>
+    <section class="container">
       <header>Registration Form for hotel info</header>
-      <form  class="form" @submit.prevent="onClick">
-        <div class="input-box">
-          <label>Hotel Name</label>
-          <input type="text" placeholder="Enter full hotel name" required v-model.trim="hotel.name" />
-        </div>
-        <div class="input-box">
-          <label>Email Address</label>
-          <input type="text" placeholder="Enter email address" required v-model.trim="hotel.email" />
-        </div>
+      <form class="form" @submit.prevent="onClick">
+
         <div class="column">
           <div class="input-box">
             <label>Phone Number</label>
-            <input type="text" placeholder="Enter phone number" required v-model.trim="hotel.number"/>
+            <input
+              type="text"
+              placeholder="Enter phone number"
+              required
+              v-model.trim="hotel.number"
+            />
+          </div>
+        </div>
+        
+        <div>
+          <div class="column-check">
+            <div class="gender-box">
+              <h3>Available</h3>
+              <div class="gender-option">
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-yes"
+                    name="avail1"
+                    value="1"
+                    v-model.trim="hotel.avail"
+                  />
+                  <label for="check-wifi-yes">YES</label>
+                </div>
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-no"
+                    name="avail1"
+                    value="0"
+                    v-model.trim="hotel.avail"
+                  />
+                  <label for="check-wifi-no">NO</label>
+                </div>
+              </div>
+            </div>
+            </div>
+             <div class="column-check">
+              <div class="gender-box">
+              <h3>wifi</h3>
+              <div class="gender-option">
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-yes"
+                    name="wifi"
+                    value="1"
+                    v-model.trim="hotel.wifi"
+                  />
+                  <label for="check-wifi-yes">YES</label>
+                </div>
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-no"
+                    name="wifi"
+                    value="0"
+                    v-model.trim="hotel.wifi"
+                  />
+                  <label for="check-wifi-no">NO</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="input-box address">
+               <div class="column">
+            <input
+              type="number"
+              placeholder="Total Room"
+              required
+              v-model.trim="hotel.totalroom"
+            />
+
+            <input
+              type="text"
+              placeholder="Image Link"
+              required
+              v-model.trim="hotel.imglink"
+            />
+          </div>
+          </div>
+        
+        <div class="input-box address">
+          <label>Address</label>
+          <input
+            type="text"
+            placeholder="Enter street address"
+            required
+            v-model.trim="hotel.address"
+          />
+          <div class="column">
+            <input
+              type="text"
+              placeholder="pincode"
+              required
+              v-model.trim="hotel.pincode"
+            />
+
+            <input
+              type="text"
+              placeholder="District"
+              required
+              v-model.trim="hotel.district"
+            />
+          </div>
+         
+<br>
+          <div>
+            <h5>DELUX ROOM</h5>
+            <div class="column">
+              <input
+                type="number"
+                placeholder="Price"
+                required
+                v-model.trim="room.price1"
+              />
+              <input
+                type="number"
+                placeholder="Number of Room "
+                required
+                v-model.trim="room.number1"
+              />
+            </div>
+            <div class="column">
+              <input
+                type="text"
+                placeholder="Description"
+                required
+                v-model.trim="room.desc1"
+              />
+              <input
+                type="text"
+                placeholder="Image Link"
+                required
+                v-model.trim="room.img1"
+              />
+            </div>
           </div>
         </div>
         <div class="column-check">
-        <div class="gender-box ">
-          <h3>WIFI</h3>
-          <div class="gender-option">
-            <div class="gender">
-              <input type="radio" id="check-wifi-yes" name="wifi" value=1 v-model.trim="hotel.wifi"  />
-              <label for="check-wifi-yes">YES</label>
-            </div>
-            <div class="gender">
-              <input type="radio" id="check-wifi-no" name="wifi" value=0 v-model.trim="hotel.wifi"  />
-              <label for="check-wifi-no">NO</label>
+            <div class="gender-box">
+              <h3>available</h3>
+              <div class="gender-option">
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-yes"
+                    name="avail1"
+                    value="1"
+                    v-model.trim="room.avail1"
+                  />
+                  <label for="check-wifi-yes">YES</label>
+                </div>
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-no"
+                    name="avail1"
+                    value="0"
+                    v-model.trim="room.avail1"
+                  />
+                  <label for="check-wifi-no">NO</label>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-         <div class="gender-box">
-          <h3>Hotel Available</h3>
-          <div class="gender-option">
-            <div class="gender">
-              Hotel Available
-              <input type="radio" id="check-hotelaval-yes" name="aval" value=1 v-model.trim="hotel.available"  />
-              <label for="check-hotelaval-yes">YES</label>
-            </div>
-            <div class="gender">
-              <input type="radio" id="check-hotelaval-no" name="aval" value=0 v-model.trim="hotel.available" />
-              <label for="check-hotelaval-no">NO</label>
-            </div>
-          </div>
-        </div>
-        </div>
-        <div class="input-box address">
-          <label>Address</label>
-          <input type="text" placeholder="Enter street address" required  v-model.trim="hotel.address" />
-          <div class="column">
 
-            <input type="text" placeholder="Country" required v-model.trim="hotel.country"/>
-            <input type="text" placeholder="District" required v-model.trim="hotel.district"/>
-          </div>
-            <input type="text" placeholder="Enter your city"  required v-model.trim="hotel.city"/>
-          <div class="column">
-            <input type="number" placeholder="Small Room Price" required v-model.trim="hotel.prices"/>
-            <input type="number" placeholder="Large Room Price" required v-model.trim="hotel.pricel"/>
-            <input type="number" placeholder="Delux Room Price" required v-model.trim="hotel.priced"/>
-             <input type="number" placeholder="total number available room" required v-model.trim="hotel.availroom"/>
+          <div class="input-box address">
+          <div>
 
+            <h5>SMALL ROOM</h5>
+            <div class="column">
+              <input
+                type="number"
+                placeholder="Price"
+                required
+                v-model.trim="room.price2"
+              />
+              <input
+                type="number"
+                placeholder="Number of Room "
+                required
+                v-model.trim="room.number2"
+              />
+            </div>
+            <div class="column">
+              <input
+                type="text"
+                placeholder="Description"
+                required
+                v-model.trim="room.desc2"
+              />
+              <input
+                type="text"
+                placeholder="Image Link"
+                required
+                v-model.trim="room.img2"
+              />
+            </div>
           </div>
         </div>
+        <div class="column-check">
+            <div class="gender-box">
+              <h3>available</h3>
+              <div class="gender-option">
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-yes"
+                    name="avail2"
+                    value="1"
+                    v-model.trim="room.avail2"
+                  />
+                  <label for="check-wifi-yes">YES</label>
+                </div>
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-no"
+                    name="avail2"
+                    value="0"
+                    v-model.trim="room.avail2"
+                  />
+                  <label for="check-wifi-no">NO</label>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="input-box address">
+          <div>
+            <h5>LARGE ROOM</h5>
+            <div class="column">
+              <input
+                type="number"
+                placeholder="Price"
+                required
+                v-model.trim="room.price3"
+              />
+              <input
+                type="number"
+                placeholder="Total Room "
+                required
+                v-model.trim="room.number3"
+              />
+            </div>
+            <div class="column">
+              <input
+                type="text"
+                placeholder="Description"
+                required
+                v-model.trim="room.desc3"
+              />
+              <input
+                type="text"
+                placeholder="Image Link"
+                required
+                v-model.trim="room.img3"
+              />
+            </div>
+          </div>
+
+        </div>
+        <div class="column-check">
+            <div class="gender-box">
+              <h3>available</h3>
+              <div class="gender-option">
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-yes"
+                    name="avail3"
+                    value="1"
+                    v-model.trim="room.avail3"
+                  />
+                  <label for="check-wifi-yes">YES</label>
+                </div>
+                <div class="gender">
+                  <input
+                    type="radio"
+                    id="check-wifi-no"
+                    name="avail3"
+                    value="0"
+                    v-model.trim="room.avail3"
+                  />
+                  <label for="check-wifi-no">NO</label>
+                </div>
+              </div>
+            </div>
+          </div>
         <button>Submit</button>
       </form>
     </section>
@@ -81,34 +315,67 @@ export default {
          name:"",
         number:"",
         wifi:"",
-        available:"",
+        avail:"",
         address:" ",
-        city:"",
-        prices:"",
-        pricel:"",
-        priced:"",
-        country:"",
+        pincode:"",
         district:"",
-        availroom:"",
+        totalroom:"",
+        imglink: ""
       },
+      room:{
+          hotel_id:"",
+             price1: "",
+             number1: "",
+             desc1: "",
+             img1: "",
+             avail1:"",
+             price2: "",
+             number2: "",
+             desc2: "",
+             img2: "",
+             avail2:"",
+             price3: "",
+             number3: "",
+             desc3: "",
+             img3: "",
+             avail3:"",
+           
+
+
+      }
     };
   },
   methods: {
 
-    onClick() {
+  async onClick() {
 
-      axios
+      await axios
         .post("http://127.0.0.1:8000/api/hotelRegister", this.hotel)
         .then(( data ) => {
           try {
-             alert(data);
-             alert('hotel register successfully');
+             console.log(data["data"]["id"]);
+             this.room.hotel_id=data["data"]["id"];
+            // alert('hotel register successfully');
           }
            catch (err) {
             alert("Error, please try again");
           }
         });
+         console.log("sdfghjkl");
+      await  axios
+        .post("http://127.0.0.1:8000/api/roomRegister", this.room)
+        .then(( data ) => {
+          try {
+             alert(data);
+             alert('room register successfully');
+          }
+           catch (err) {
+            alert("Error, please try again");
+          }
+        });
+        
      },
+     
   },
 };
 </script>
@@ -135,7 +402,7 @@ body {
   width: 100%;
   background: #fff;
   padding: 19px;
-    margin-left: 134px;
+ margin-left: 405px;
  margin-top: 20px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);

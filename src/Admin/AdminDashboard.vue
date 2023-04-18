@@ -8,7 +8,7 @@
                         <!-- <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i> -->
                         <h2 class="fs-2 m-0">Admin Dashboard</h2>
                     </div>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
@@ -22,11 +22,11 @@
                                 </ul>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </nav>
                 <div class="container-fluid px-4">
                     <div class="row g-3 my-2">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
                                     <h3 class="fs-2">{{ hotelcount }}</h3>
@@ -36,7 +36,7 @@
                                     class="fas fa-duotone fa-hotel fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
                                     <h3 class="fs-2">{{ usercount }}</h3>
@@ -45,7 +45,7 @@
                                 <i class="fas fa-regular fa-user primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
                                     <h3 class="fs-2">{{ bookingcount }}</h3>
@@ -54,12 +54,12 @@
                                 <i class="fas fa-solid fa-check fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
               <div
                 class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded"
               >
                 <div>
-                  <h3 class="fs-2">%25</h3>
+                  
                   <p class="fs-5">Register Hotel On App</p>
                 </div>
                 <i @click="callcomponent()"
@@ -121,9 +121,11 @@
                                         <td>{{ hotel.phonenumber }}</td>
                                         <td>{{ hotel.location }}</td>
                                         <td>
-                                            <router-link to="/admin/hotel" class="btn btn-warning">
+                                            <!-- <router-link to="/admin/hotel" class="btn btn-warning">
                                                 Edit
-                                            </router-link>
+                                            </router-link> -->
+                                            <button type="button" class="btn btn-warning"
+                                                @click="edit(hotel)">Edit</button>
                                             <!-- <button type="button" class="btn btn-warning">Edit</button> -->
                                             <button type="button" class="btn btn-danger"
                                                 @click="removeh(hotel)">Delete</button>
@@ -189,7 +191,10 @@ export default {
         this.HotelCount();
         this.UserCount();
         this.BookingCount();
+        
     },
+  
+ 
     methods: {
         UserLoad() {
             var page = "http://127.0.0.1:8000/api/customerdata";
@@ -258,6 +263,16 @@ export default {
             alert("Deleteddd");
             this.HotelLoad();
             this.HotelCount();
+        },
+         edit(hotel) {
+            // var url = `http://127.0.0.1:8000/api/deletehotel/${hotel.id}`;
+            // var url = 'http://127.0.0.1:8000/api/deletehotel/' + hotel.id;
+            // axios.delete(url);
+            // alert("Deleteddd");
+            // this.HotelLoad();
+            // this.HotelCount();
+               this.$store.commit('sethotelid',{ hotelid:hotel.id});
+              this.$router.push("/admin/hotel");
         },
         removeu(user) {
             // var url = `http://127.0.0.1:8000/api/deletehotel/${hotel.id}`;

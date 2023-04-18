@@ -2,10 +2,10 @@
   <div>
     <section class="home" id="home">
       <div class="container" id="infos">
-        <h1>Make Memories</h1>
-        <p>Discover the place where you have fun & enjoy a lot</p>
+        <h1>Happy Hotels</h1>
+        <p>Discover the place for your leisure time</p>
 
-        <div class="content grid">
+        <!-- <div class="content grid">
           <div class="box">
             <span>ARRIVAL DATE </span> <br>
             <input type="date" placeholder="29/20/2021">
@@ -28,7 +28,7 @@
               <i class="fas fa-arrow-circle-right"></i>
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -36,23 +36,24 @@
     <section class="blog top" id="blog">
       <div class="container">
         <div class="heading">
-          <h5>OUR BLOG</h5>
-          <h3>News & articles updates</h3>
+          <h5>OUR Website</h5>
+          <h3>New and Fancy Hotels</h3>
         </div>
 
         <div class="content grid mtop">
           <div class="box" v-for="hotel in val"  v-bind:key="hotel">
+           
             <div class="img">
               <img src="../img/b1.jpg" alt="">
-              <span>{{ hotel.name}}</span>
+              <span>Welcome</span>
             </div>
             <div class="text">
-              <div class="flex">
-                <i class="far fa-user"> <label>{{ hotel.email }}</label> </i>
-                <i class="far fa-comments"> <label>{{hotel.hourlyRate}}</label> </i>
-              </div>
-              <h3>{{hotel.location}}</h3>
-              <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+               <h3> Name: {{ hotel.name }} </h3>
+              <h3> contact number: {{ hotel.phonenumber }} </h3>
+              <h3> Email: {{ hotel.email }} </h3>
+              
+              <h3>District:{{hotel.district}} , Pin:{{hotel.location}}</h3>
+              <p> address:{{hotel.address}} </p>
              <button type="button" @click="show(hotel)">view hotel</button>
             </div>
 
@@ -73,7 +74,7 @@
     </section>
 
 
-    <section class="wrapper">
+    <!-- <section class="wrapper">
       <div class="container">
         <div class="owl-carousel owl-theme">
           <div class="item">
@@ -411,6 +412,368 @@
 
   </div>
 
+  </template> -->
+  <section class="wrapper">
+      <div class="container">
+        <div class="owl-carousel owl-theme">
+          <div class="item">
+            <div class="heading">
+              <h5>THE CITY VIEW</h5>
+              <h3>A charming view of the city</h3>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+              sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+              sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="item">
+            <div class="heading">
+              <h5>THE CITY VIEW</h5>
+              <h3>A charming view of the city</h3>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+              sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+              sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="item">
+            <div class="heading">
+              <h5>THE CITY VIEW</h5>
+              <h3>A charming view of the city</h3>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+              sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+              sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="wrapper2">
+      <div class="container">
+        <div class="heading mtop">
+          <h5>FACILITIES</h5>
+          <h2>Giving entirely awesome </h2>
+        </div>
+
+        <div class="content grid mtop">
+          <div class="box">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>Pick Up & Drop</h3>
+            <p>parkn ipsum dolor sit amet, consectetur adiing elit sed do eiu</p>
+            <span class='far fa-long-arrow-alt-right'></span>
+          </div>
+          <div class="box">
+            <i class="fas fa-mug-hot"></i>
+            <h3>Pick Up & Drop</h3>
+            <p>parkn ipsum dolor sit amet, consectetur adiing elit sed do eiu</p>
+            <span class='far fa-long-arrow-alt-right'></span>
+          </div>
+          <div class="box">
+            <i class="fas fa-car"></i>
+            <h3>Pick Up & Drop</h3>
+            <p>parkn ipsum dolor sit amet, consectetur adiing elit sed do eiu</p>
+            <span class='far fa-long-arrow-alt-right'></span>
+          </div>
+          <div class="box">
+            <i class="far fa-water"></i>
+            <h3>Pick Up & Drop</h3>
+            <p>parkn ipsum dolor sit amet, consectetur adiing elit sed do eiu</p>
+            <span class='far fa-long-arrow-alt-right'></span>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+    <section class="room wrapper2 top" id="room">
+      <div class="container">
+        <div class="heading">
+          <h5>OUR ROOMS</h5>
+          <h2>Fascinating rooms & suites </h2>
+        </div>
+        <div class="content flex mtop">
+          <div class="left grid2">
+            <div class="box">
+              <i class="fas fa-desktop"></i>
+              <p>Free Cost</p>
+              <h3>No booking fee</h3>
+            </div>
+            <div class="box">
+              <i class="fas fa-dollar-sign"></i>
+              <p>Free Cost</p>
+              <h3>Best rate guarantee</h3>
+            </div>
+            <div class="box">
+              <i class="fab fa-resolving"></i>
+              <p>Free Cost</p>
+              <h3>Reservations 24/7</h3>
+            </div>
+            <div class="box">
+              <i class="fal fa-alarm-clock"></i>
+              <p>Free Cost</p>
+              <h3>High-speed Wi-Fi</h3>
+            </div>
+            <div class="box">
+              <i class="fas fa-mug-hot"></i>
+              <p>Free Cost</p>
+              <h3>Free breakfast</h3>
+            </div>
+            <div class="box">
+              <i class="fas fa-user-tie"></i>
+              <p>Free Cost</p>
+              <h3>One person free</h3>
+            </div>
+          </div>
+          <div class="right">
+            <img src="../img/r.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="timer about wrapper">
+      <div class="background"> </div>
+      <div class="container">
+        <div class="heading">
+          <h5>LAST MINUTE!</h5>
+          <h2> <span>Incredible!</span> Are you coming today</h2>
+        </div>
+
+        <div id="time" class="flex1 mtop"> </div>
+      </div>
+    </section>
+    <section class="area top">
+      <div class="container">
+        <div class="heading">
+          <h5>RESTAURANT</h5>
+          <h3>The area we cover under ecorik</h3>
+        </div>
+
+        <div class="content flex mtop">
+          <div class="left">
+            <img src="../img/aera.jpg" alt="">
+          </div>
+          <div class="right">
+            <ul>
+              <li>Restaurant </li>
+              <li>Swimming pool </li>
+              <li>Conference room</li>
+            </ul>
+
+            <p>Welcome to our hotel website! Our hotel offers a luxurious dining experience at our restaurant, where our
+              talented chefs prepare exquisite dishes using only the freshest and finest ingredients. Whether you are in
+              the mood for a hearty meal or something lighter, our menu has something for everyone.</p>
+            <p>In addition to our exceptional dining, we also have a beautiful swimming pool on site for our guests to
+              enjoy. Surrounded by lush greenery and comfortable loungers, our pool is the perfect place to unwind and
+              soak up some sun. Whether you want to swim laps or just relax with a good book, our pool is the perfect
+              place to do it.</p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="customer top" id="testimonials">
+      <div class="container">
+        <div class="heading">
+          <h5>TESTIMONIALS </h5>
+          <h3>What customers say </h3>
+        </div>
+
+        <div class="owl-carousel owl-theme mtop">
+          <div class="item">
+            <div class="rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Excellent Swimming</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="admin flex">
+              <div class="img">
+                <img src="../img/c1.jpg" alt="">
+              </div>
+              <div class="text">
+                <h3>Ayman Jensi</h3>
+                <span>Manager</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Excellent Swimming</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="admin flex">
+              <div class="img">
+                <img src="../img/c2.jpg" alt="">
+              </div>
+              <div class="text">
+                <h3>Ayman Jensi</h3>
+                <span>Manager</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Excellent Swimming</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="admin flex">
+              <div class="img">
+                <img src="../img/c3.jpg" alt="">
+              </div>
+              <div class="text">
+                <h3>Ayman Jensi</h3>
+                <span>Manager</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="heading">
+          <h5>EXPLORE</h5>
+          <h2>We are cool to give you pleasure
+          </h2>
+        </div>
+
+        <div class="content flex  top">
+          <div class="left">
+            <h3>As much as comfort want to get from us everything
+            </h3>
+            <p>Welcome to our luxurious hotel, where indulgence meets comfort and relaxation is at its finest.
+
+              Experience the ultimate escape from your daily routine and immerse yourself in the tranquil ambiance of our
+              hotel.
+
+              Our hotel offers a seamless blend of contemporary design and exceptional service, ensuring that your stay is
+              a memorable one.
+
+            </p>
+            <p> Let us cater to your every need and create a personalized experience that exceeds your expectations.
+
+              Escape to a world of unparalleled comfort and sophistication, where every detail has been carefully curated
+              to provide the ultimate luxury experience.</p>
+            <!-- <button class="flex1">
+              <span>Check Availability</span>
+              <i class="fas fa-arrow-circle-right"></i>
+            </button> -->
+          </div>
+          <div class="right">
+            <img src="../img/a.png" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallary top" id="gallary">
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <img src="../img/g1.jpg" alt="">
+          <div class="overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../img/g2.jpg" alt="">
+          <div class="overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../img/g3.jpg" alt="">
+          <div class="overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../img/g4.jpg" alt="">
+          <div class="overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../img/g5.jpg" alt="">
+          <div class="overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../img/g1.jpg" alt="">
+          <div class="overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../img/g2.jpg" alt="">
+          <div class="overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../img/g3.jpg" alt="">
+          <div class="overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+
+    <footer>
+
+      <div class="container flex1">
+
+        <div><a href=""><i class="fab fa-facebook-f">Facebook</i></a></div>
+        <div><a href=""><i class="fab fa-twitter">twitter</i></a></div>
+        <div> <a href=""> <i class="fab fa-instagram">instagram</i></a></div>
+        <div><a href=""><i class="fab fa-youtube">youtube</i></a></div>
+
+
+      </div>
+
+
+
+    </footer>
+
+
+  </div>
+
+    
   </template>
   <script>
    //console.log("sdfgh");
@@ -433,12 +796,13 @@
              posts: null,
              res:'',
              pageCount: null,
+             hotelid:''
           };
        },
         methods:{
           show(hotel){
-             this.$store.commit('sethotelid',{ hotelid:hotel.id});
-              this.$router.push('/hotel/'+ hotel.id);
+             this.$store.commit('sethotelid',{ hotelid:hotel.hotelid});
+              this.$router.push('/hotel/'+ hotel.hotelid);
            },
     getPosts()
    {
@@ -446,10 +810,14 @@
     axios.get('http://127.0.0.1:8000/api/hotellist?page='+ this.page )
     .then(( res ) => {
              try {
-      console.log(res["data"]["paginate"]["data"]);
+    
                     this.pageCount= res["data"]["page_count"]
                      this.posts= res["data"]["paginate"]["data"]
                      this.val=res["data"]["paginate"]["data"]
+                    
+                    
+                      console.log(res);
+                     
     }
                  catch(err){
                       console.error(err)
@@ -754,11 +1122,12 @@
     font-family: 'Great Vibes', cursive;
     font-size: 150px;
     color: white;
-    padding-top: 10%;
+    padding-top: 20%;
   }
 
   .home p {
     color: white;
+    font-weight: bold;
   }
 
   .home .content {
