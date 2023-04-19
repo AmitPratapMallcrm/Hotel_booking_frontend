@@ -6,140 +6,87 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                     <div class="d-flex align-items-center">
                         <!-- <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i> -->
-                        <h2 class="fs-2 m-0">Hotel Dashboard</h2>
+                        <h2 class="fs-2 m-0">Hotel Dashboard for {{val['name']}}</h2>
                     </div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <!-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-user me-2"></i>John Doe
-                                </a>
-                                
-                            </li> -->
+                          
                         </ul>
                     </div>
                 </nav>
                 <div class="container-fluid px-4">
                     <div class="row g-3 my-2">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">{{ roomcount }}</h3>
+                                    <h3 class="fs-2">{{ val['numberofavailroom'] }}</h3>
                                     <p class="fs-5">Rooms</p>
                                 </div>
                                 <i
                                     class="fas fa-duotone fa-hotel fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">{{ ac }}</h3>
-                                    <p class="fs-5">AC</p>
+                                    <h3 class="fs-2" v-if="wifi">Yes</h3>
+                                    <h3 class="fs-2" v-else>No</h3>
+                                    <p class="fs-5">WiFi</p>
                                 </div>
-                                <i class="fas fa-regular fa-user primary-text border rounded-full secondary-bg p-3"></i>
+                                <i class="fas fa-duotone fa-wifi primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">{{ bookingcount }}</h3>
+                                    <h3 class="fs-2">{{ this.count }}</h3>
                                     <p class="fs-5">Bookings</p>
                                 </div>
                                 <i class="fas fa-solid fa-check fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="row my-5">
-                        <h3 class="fs-4 mb-3">Users</h3>
-                        <div class="col">
-                            <table class="table bg-white rounded shadow-sm  table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" width="50">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Phone</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Option</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="user in users" v-bind:key="user.id">
-                                        <td>{{ user.id }}</td>
-                                        <td>{{ user.name }}</td>
-                                        <td>{{ user.email }}</td>
-                                        <td>{{ user.phonenumber }}</td>
-                                        <td>{{ user.address }}</td>
-                                        <td>
-                                            <button type="button" class="btn btn-danger"
-                                                @click="removeu(user)">Delete</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                        <div class="col-md-3">
+                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                                <div>
+                                    <h3 class="fs-2">Click the icon!</h3>
+                                    <p class="fs-5">Update Details</p>
+                                </div>
+                                <i @click="callcomponent()"
+                  class="fas fa-regular fa-pen primary-text border rounded-full secondary-bg p-3"
+                ></i>
+                            </div>
                         </div>
                     </div>
-                    <div class="row my-5">
-                        <h3 class="fs-4 mb-3">Hotels</h3>
-                        <div class="col">
-                            <table class="table bg-white rounded shadow-sm  table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" width="50">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Phone</th>
-                                        <th scope="col">Location</th>
-                                        <th scope="col">Option</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="hotel in hotels" v-bind:key="hotel.id">
-                                        <td>{{ hotel.id }}</td>
-                                        <td>{{ hotel.hotel_name }}</td>
-                                        <td>{{ hotel.email }}</td>
-                                        <td>{{ hotel.phonenumber }}</td>
-                                        <td>{{ hotel.location }}</td>
-                                        <td>
-                                            <router-link to="/admin/hotel" class="btn btn-warning">
-                                                Edit
-                                            </router-link>
-                                            <!-- <button type="button" class="btn btn-warning">Edit</button> -->
-                                            <button type="button" class="btn btn-danger"
-                                                @click="removeh(hotel)">Delete</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    
                     <div class="row my-5">
                         <h3 class="fs-4 mb-3">Bookings</h3>
                         <div class="col">
                             <table class="table bg-white rounded shadow-sm  table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col" width="50">#</th>
-                                        <th scope="col">Customer ID</th>
+                                        
+                                        <th scope="col">Customer name</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Arrival</th>
                                         <th scope="col">Departure</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="booking in bookings" v-bind:key="booking.id">
-                                        <td>{{ booking.id }}</td>
-                                        <td>{{ booking.customer_id }}</td>
+                                    <tr v-for="booking in val2" v-bind:key="booking.id">
+
+                                        <td>{{ booking.name}}</td>
                                         <td>{{ booking.price }}</td>
                                         <td>{{ booking.arival }}</td>
                                         <td>{{ booking.departure }}</td>
+                                       
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                   
                 </div>
             </div>
         </div>
@@ -151,104 +98,49 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            users: {},
-            hotels: {},
-            bookings: {},
-            hotelcount: "",
-            usercount: "",
-            bookingcount: ""
+            id: this.$store.getters.userId,
+            hotelid: "",
+            val:'',
+             val2: '',
+            wifi:'',
+       count:''
+            
         };
     },
-    created() {
-        this.UserLoad();
-        this.HotelLoad();
-        this.BookingLoad();
-        this.HotelCount();
-        this.UserCount();
-        this.BookingCount();
+   async created() { 
+     var link = 'http://127.0.0.1:8000/api/hotelbyid/' + this.id;
+    await axios.get(link).then((data) => {
+      try {
+        console.log(data);
+        this.val = data['data']['0'];
+        this.wifi=data['data']['0']['wifi']
+        this.hotelid= data['data']['0']['id'];
+         console.log(this.val);
+      } catch (err) {
+        alert('Error, please try again');
+      }
+    });
+     var link1 = 'http://127.0.0.1:8000/api/bookingdetailhotel/' + this.hotelid;
+   await axios.get(link1).then((data) => {
+      try {
+        console.log(data);
+        this.val2 = data['data'];
+        this.count= this.val2.length;
+      } catch (err) {
+        alert('Error, please try again');
+      }
+    });
+
+       
+        
     },
-    mounted(){
-        this.HotelCount();
-        this.UserCount();
-        this.BookingCount();
-    },
+  
     methods: {
-        UserLoad() {
-            var page = "http://127.0.0.1:8000/api/customerdata";
-            axios.get(page)
-                .then(
-                    ({ data }) => {
-                        console.log(data);
-                        this.users = data;
-                    }
-                );
-        },
-        UserCount() {
-            var page = "http://127.0.0.1:8000/api/customerdatacount";
-            axios.get(page)
-                .then(
-                    ({ data }) => {
-                        console.log(data);
-                        this.usercount = data;
-                    }
-                );
-        },
-        HotelLoad() {
-            var page = "http://127.0.0.1:8000/api/hoteldata";
-            axios.get(page)
-                .then(
-                    ({ data }) => {
-                        console.log(data);
-                        this.hotels = data;
-                    }
-                );
-        },
-        HotelCount() {
-            var page = "http://127.0.0.1:8000/api/hoteldatacount";
-            axios.get(page)
-                .then(
-                    ({ data }) => {
-                        console.log(data);
-                        this.hotelcount = data;
-                    }
-                );
-        },
-        BookingLoad() {
-            var page = "http://127.0.0.1:8000/api/bookingdata";
-            axios.get(page)
-                .then(
-                    ({ data }) => {
-                        console.log(data);
-                        this.bookings = data;
-                    }
-                );
-        },
-        BookingCount() {
-            var page = "http://127.0.0.1:8000/api/bookingdatacount";
-            axios.get(page)
-                .then(
-                    ({ data }) => {
-                        console.log(data);
-                        this.bookingcount = data;
-                    }
-                );
-        },
-        removeh(hotel) {
-            // var url = `http://127.0.0.1:8000/api/deletehotel/${hotel.id}`;
-            var url = 'http://127.0.0.1:8000/api/deletehotel/' + hotel.id;
-            axios.delete(url);
-            alert("Deleteddd");
-            this.HotelLoad();
-            this.HotelCount();
-        },
-        removeu(user) {
-            // var url = `http://127.0.0.1:8000/api/deletehotel/${hotel.id}`;
-            var url = 'http://127.0.0.1:8000/api/deletecustomer/' + user.id;
-            axios.delete(url);
-            alert("Deleteddd");
-            this.UserLoad();
-            this.UserCount();
-        }
+      
+        callcomponent(){
+      this.$router.push('/register');
+    }
+       
     }
 }
 </script>
@@ -279,6 +171,7 @@ export default {
 }
 #wrapper {
     overflow-x: hidden;
+    height: 670px;
     /* background-image: linear-gradient(to right,
             #BAF3D7,
             #C2F5DE,

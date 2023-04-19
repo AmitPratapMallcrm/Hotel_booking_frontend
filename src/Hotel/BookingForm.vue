@@ -69,9 +69,9 @@ export default{
         this.mm=String(this.today.getMonth()+1).padStart(2,"0"); 
         this.yyyy=this.today.getFullYear();
         this.day= this.yyyy+"-"+this.mm+"-"+this.dd;
-        console.log(this.day);
-        console.log(this.arrivaldate);
-        console.log(this.departuredate);
+        // console.log(this.day);
+        // console.log(this.arrivaldate);
+        // console.log(this.departuredate);
         
         if(this.day>this.arrivaldate||this.arrivaldate>=this.departuredate)
         {

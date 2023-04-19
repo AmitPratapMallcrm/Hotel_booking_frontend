@@ -346,14 +346,17 @@ export default {
     };
   },
   methods: {
-
+  mounted()
+  {
+      
+  },
   async onClick() {
 
       await axios
         .post("http://127.0.0.1:8000/api/hotelRegister", this.hotel)
         .then(( data ) => {
           try {
-             console.log(data["data"]["id"]);
+           //  console.log(data["data"]["id"]);
              this.room.hotel_id=data["data"]["id"];
             // alert('hotel register successfully');
           }
@@ -361,17 +364,20 @@ export default {
             alert("Error, please try again");
           }
         });
-         console.log("sdfghjkl");
+       
       await  axios
         .post("http://127.0.0.1:8000/api/roomRegister", this.room)
-        .then(( data ) => {
+        .then((  ) => {
           try {
-             alert(data);
-             alert('room register successfully');
+             
+             alert('rooms register successfully');
+              this.$router.push('/yourhotel')
           }
            catch (err) {
             alert("Error, please try again");
+             
           }
+         
         });
         
      },

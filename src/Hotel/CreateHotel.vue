@@ -55,10 +55,6 @@ methods: {
           this.$router.push('/admin');
         });
     },
-//     gotohoteldash()
-//         {
-//           this.$router.push('/hoteldashboard');
-//         }
 },
 }
 </script>

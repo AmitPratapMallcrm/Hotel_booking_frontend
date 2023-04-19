@@ -1,28 +1,11 @@
 <template>
     <div>
         <div class="d-flex" id="wrapper">
-            <!-- Page Content -->
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                     <div class="d-flex align-items-center">
-                        <!-- <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i> -->
                         <h2 class="fs-2 m-0">Admin Dashboard</h2>
                     </div>
-                    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-user me-2"></i>John Doe
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Hotels</a></li>
-                                        <li><a class="dropdown-item" href="#">Users</a></li>
-                                        <li><a class="dropdown-item" href="#">Bookings</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div> -->
                 </nav>
                 <div class="container-fluid px-4">
                     <div class="row g-3 my-2">
@@ -59,8 +42,8 @@
                 class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded"
               >
                 <div>
-                  
-                  <p class="fs-5">Register Hotel On App</p>
+                    <h4 class="fs-4">new</h4>
+                  <p class="fs-5">Register Hotel</p>
                 </div>
                 <i @click="callcomponent()"
                   class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3 "
@@ -75,7 +58,7 @@
                             <table class="table bg-white rounded shadow-sm  table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col" width="50">#</th>
+                                        <th scope="col" width="50">userID</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Phone</th>
@@ -89,7 +72,7 @@
                                         <td>{{ user.name }}</td>
                                         <td>{{ user.email }}</td>
                                         <td>{{ user.phonenumber }}</td>
-                                        <td>{{ user.address }}</td>
+                                        <td>{{ user.location }}</td>
                                         <td>
                                             <button type="button" class="btn btn-danger"
                                                 @click="removeu(user)">Delete</button>
@@ -105,7 +88,7 @@
                             <table class="table bg-white rounded shadow-sm  table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col" width="50">#</th>
+                                        <th scope="col" width="50">hotelID</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Phone</th>
@@ -116,17 +99,13 @@
                                 <tbody>
                                     <tr v-for="hotel in hotels" v-bind:key="hotel.id">
                                         <td>{{ hotel.id }}</td>
-                                        <td>{{ hotel.hotel_name }}</td>
+                                        <td>{{ hotel.name }}</td>
                                         <td>{{ hotel.email }}</td>
                                         <td>{{ hotel.phonenumber }}</td>
-                                        <td>{{ hotel.location }}</td>
+                                        <td>{{ hotel.address }}</td>
                                         <td>
-                                            <!-- <router-link to="/admin/hotel" class="btn btn-warning">
-                                                Edit
-                                            </router-link> -->
-                                            <button type="button" class="btn btn-warning"
-                                                @click="edit(hotel)">Edit</button>
-                                            <!-- <button type="button" class="btn btn-warning">Edit</button> -->
+                                           
+                                
                                             <button type="button" class="btn btn-danger"
                                                 @click="removeh(hotel)">Delete</button>
                                         </td>
@@ -141,20 +120,22 @@
                             <table class="table bg-white rounded shadow-sm  table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col" width="50">#</th>
-                                        <th scope="col">Customer ID</th>
+                                        <th scope="col" width="50">bookingID</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Arrival</th>
                                         <th scope="col">Departure</th>
+                                        <th scope="col">customerID</th>
+                                        <th scope="col">hotelID</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="booking in bookings" v-bind:key="booking.id">
                                         <td>{{ booking.id }}</td>
-                                        <td>{{ booking.customer_id }}</td>
                                         <td>{{ booking.price }}</td>
                                         <td>{{ booking.arival }}</td>
                                         <td>{{ booking.departure }}</td>
+                                         <td>{{ booking.customer_id }}</td>
+                                          <td>{{ booking.hotel_id }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -176,7 +157,8 @@ export default {
             bookings: {},
             hotelcount: "",
             usercount: "",
-            bookingcount: ""
+            bookingcount: "",
+           
         };
     },
     created() {
@@ -264,21 +246,11 @@ export default {
             this.HotelLoad();
             this.HotelCount();
         },
-         edit(hotel) {
-            // var url = `http://127.0.0.1:8000/api/deletehotel/${hotel.id}`;
-            // var url = 'http://127.0.0.1:8000/api/deletehotel/' + hotel.id;
-            // axios.delete(url);
-            // alert("Deleteddd");
-            // this.HotelLoad();
-            // this.HotelCount();
-               this.$store.commit('sethotelid',{ hotelid:hotel.id});
-              this.$router.push("/admin/hotel");
-        },
         removeu(user) {
             // var url = `http://127.0.0.1:8000/api/deletehotel/${hotel.id}`;
             var url = 'http://127.0.0.1:8000/api/deletecustomer/' + user.id;
             axios.delete(url);
-            alert("Deleteddd");
+            alert("Deleted");
             this.UserLoad();
             this.UserCount();
         },

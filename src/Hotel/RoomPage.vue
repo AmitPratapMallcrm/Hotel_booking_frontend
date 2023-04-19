@@ -67,7 +67,7 @@
             <div class="content grid2 mtop">
               <div class="box flex">
                 <div class="left">
-                  <img src="../img/o1.jpg" alt="">
+                  <img :src="this.img1" alt="">
                 </div>
                 <div class="right">
                   <h4>Deluxe Room</h4>
@@ -95,7 +95,7 @@
               </div>
               <div class="box flex">
                 <div class="left">
-                  <img src="../img/o2.jpg" alt="">
+                  <img :src="this.img2" alt="">
                 </div>
                 <div class="right">
                   <h4>LARGE Room</h4>
@@ -124,7 +124,7 @@
 
               <div class="box flex">
                 <div class="left">
-                  <img src="../img/o4.jpg" alt="">
+                  <img :src="this.img3" alt="">
                 </div>
                 <div class="right">
                   <h4>SMALL Room</h4>
@@ -149,11 +149,11 @@
                     <span>Remove from list </span>
                      </button>
 
-                    
-                
+
+
 
                 </div>
-             
+
           </div>
            </div>
            <br><br>
@@ -187,7 +187,7 @@
               enjoy. Surrounded by lush greenery and comfortable loungers, our pool is the perfect place to unwind and
               soak up some sun. Whether you want to swim laps or just relax with a good book, our pool is the perfect
               place to do it.</p>
-              
+
               </div>
             </div>
           </div>
@@ -200,7 +200,7 @@
       import axios from "axios";
       export default{
            components: {
-             
+
            },
              data(){
               return {
@@ -210,6 +210,9 @@
                   facilities1: "",
                    facilities2: "",
                     facilities3: "",
+                    img1: "",
+                   img2: "",
+                    img3: "",
                     total: 0,
                     count1:0,
                      count2:0,
@@ -235,12 +238,15 @@
               .get(link)
               .then(( data ) => {
                 try {
-                    
+
                    console.log(this.hotelid);
                    console.log(data["data"]);
                    this.room1=data["data"][0]["price"];
                    this.room2=data["data"][1]["price"];
                    this.room3=data["data"][2]["price"];
+                   this.img1= data["data"][0]["image"];
+                   this.img2= data["data"][1]["image"];
+                    this.img3= data["data"][2]["image"];
                     this.facilities1=data["data"][0]["facilities"];
                     this.facilities2=data["data"][1]["facilities"];
                     this.facilities3=data["data"][2]["facilities"];
@@ -293,9 +299,9 @@ this.$store.commit('setnumberofroomtype1',{ numberofroomtype1:this.count1});
 this.$store.commit('setnumberofroomtype2',{ numberofroomtype2:this.count2});
 this.$store.commit('setnumberofroomtype3',{ numberofroomtype3:this.count3});
                     this.$router.push('/bookingform');
-            
+
               }
-              
+
           }
       };
       </script>
@@ -1308,7 +1314,7 @@ this.$store.commit('setnumberofroomtype3',{ numberofroomtype3:this.count3});
           margin-top: 50px;
         }
 
-      
+
         .timer.wrapper {
           height: 50vh;
         }

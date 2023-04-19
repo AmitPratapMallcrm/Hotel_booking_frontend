@@ -5,7 +5,7 @@
         <img src="../img/bg.svg" />
       </div>
       <div class="login-content">
-        <form @submit.prevent="onCreatePost">
+        <form autocomplete="off" @submit.prevent="onCreatePost">
           <img src="../img/avatar1.svg" />
           <div class="input-div one">
             <div class="i">
@@ -17,12 +17,56 @@
                 class="input"
                 placeholder="Name"
                 v-model="title"
+                autocomplete="false"
+              />
+            </div>
+          </div>
+          
+          <div class="input-div one">
+            <div class="i">
+              <i class="fa-regular fa-mobile fa-lg"></i>
+            </div>
+            <div class="div">
+              <input
+                type="text"
+                class="input"
+                placeholder="Mobile Number"
+                v-model="phone"
+                autocomplete="false"
               />
             </div>
           </div>
           <div class="input-div one">
             <div class="i">
-              <i class="fas fa-envelope-square"></i>
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="div">
+              <input
+                type="text"
+                class="input"
+                placeholder="Address"
+                v-model="address"
+                autocomplete="false"
+              />
+            </div>
+          </div>
+          <div class="input-div one">
+            <div class="i">
+              <i class="fa-solid fa-id-card fa-lg"></i>
+            </div>
+            <div class="div">
+              <input
+                type="text"
+                class="input"
+                placeholder="ID Number"
+                v-model="idnumber"
+                autocomplete="false"
+              />
+            </div>
+          </div><div class="input-div one">
+            <div class="i">
+               <i class="fas fa-envelope-square"></i>
+           
             </div>
             <div class="div">
               <input
@@ -30,6 +74,7 @@
                 class="input"
                 placeholder="Email"
                 v-model="email"
+                autocomplete="false"
               />
             </div>
           </div>
@@ -45,6 +90,7 @@
                 name="password"
                 placeholder="Password"
                 v-model="password"
+                autocomplete="false"
               />
             </div>
           </div>
@@ -64,6 +110,9 @@ export default {
       title: '',
       password: '',
       email: '',
+      idnumber:'',
+      phone:'',
+      address:'',
       role_id: '3',
       isSuccess: false,
       user_id: ''
@@ -86,9 +135,9 @@ export default {
 
             axios
         .post(`http://127.0.0.1:8000/api/customer`,{
-          location: 'NA',
-          phonenumber: 'NA',
-          addharnumber: 'NA',
+          location: this.address,
+          phonenumber: this.phone,
+          addharnumber: this.idnumber,
           user_id:this.user_id,
 
              

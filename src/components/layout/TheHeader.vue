@@ -4,7 +4,7 @@
     width: 99vw;
     padding: 0;
     margin: 0;">
-     <router-link to="/hotel">All Hotels</router-link>
+     <router-link to="/hotel" v-if="check()===true">All Hotels</router-link>
       <router-link to="/login" v-if="addone()===false">Login</router-link>
       <router-link to="/registerpage" v-if="addone()===false">Sign Up </router-link>
        <router-link to="/logout" @click="logoutapp" v-if="addone()===true" > Logout </router-link>
@@ -36,6 +36,14 @@ methods :{
  
     addone(){
        return this.$store.getters.isauth;
+    },
+    check()
+    {
+
+      if(localStorage.userId == 1 || localStorage.userId == 2)
+          return false;
+        else return true;
+      
     },
     logoutapp()
     {
