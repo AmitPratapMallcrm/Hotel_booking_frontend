@@ -9,7 +9,7 @@
         <div class="title">
           <h3>Success!</h3>
         </div>
-        <p class="para">Your account has been created successfully</p>
+        <p class="para">Payment successfully</p>
           <button href="#" class="button" id="s_button" @click="redirecttohome">OKAY</button>
       </div>
     </div>

@@ -45,6 +45,11 @@ import axios from "axios";
 export default {
   data() {
     return {
+      find:{
+         userId:'',
+
+      },
+      val:'',
       role: '',
       mail: "",
       userName: "",
@@ -59,8 +64,8 @@ export default {
   
   methods: {
      
-    onLogin() {
-      axios
+   async onLogin() {
+      await axios
         .post("http://127.0.0.1:8000/api/login", this.student)
         .then(({ data }) => {
           try {
@@ -69,7 +74,8 @@ export default {
                   this.userName= data['users']['0']['name'];
                   this.api_token= data['users']['0']['api_token'];
                   this.user_id= data['users']['0']['id'];
-                  console.log(this.api_token);
+                  this.find.userId=this.user_id;
+                    console.log(this.api_token);
                   console.log(this.role);
                   console.log(this.userName);
                     this.$emit('postcreated');
@@ -82,6 +88,21 @@ export default {
               this.$router.push('/admin');
             }
             else if (this.role === '2' ) {
+
+                  axios
+        .post("http://127.0.0.1:8000/api/hotelfind", this.find)
+        .then(({data}) => {
+         try {
+             this.val=data['users'];
+             if(this.val!=0)
+             {
+              this.$router.push("/yourhotel");
+             }
+          }
+           catch (err) {
+            alert("Error, please try again");
+          }
+        });
                alert("Login Successfully as Hotel");
               this.$router.push('/register');
             }

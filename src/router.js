@@ -14,6 +14,7 @@ import PaymentPage from "./Payment/PaymentPage.vue"
 import BookingForm from "./Hotel/BookingForm.vue"
 import AdminHotelEdit from "./Admin/AdminHotelEdit.vue"
 import CreateHotel from "./Hotel/CreateHotel.vue"
+import HotelFormedite from "./Hotel/HotelFormedit.vue"
 import store from './store'
 //meta:{ requiresUser : true }
 const router = createRouter({
@@ -27,6 +28,7 @@ const router = createRouter({
     {path: '/hotel/room/error',component: ErrorPage  ,meta:{ requiresAuth : true ,requiresUser: true ,requiresDirect: true}},
     {path: '/hotel/room/success',component: SuccessPage  ,meta:{ requiresAuth : true,requiresUser: true,requiresDirect: true }}, 
     {path: '/hotel/:id',component: RoomPage,},
+    {path: '/yourhotel/:id/edit',component: HotelFormedite, meta:{ requiresAuth : true,requiresHotel: true }},
     {path: '/yourhotel',component: YourHotel , meta:{ requiresAuth : true,requiresHotel: true }},//, meta:{ requiresAuth: true}},
     {path: '/admin',component: AdminDashboard , meta:{ requiresAuth : true , requiresAdmin: true} },//, meta:{ requireAuth : true} },
     {path: '/login', component: AuthLogin, meta:{ requiresUnAuth : true,}},//,meta:{ requireAuth : true}},

@@ -41,9 +41,10 @@ export default {
           this.commit('setapp',{ tokenId: api_token, userId: user_id,roleId: role}); 
          this.commit('loginhogya');
       
-      } catch (err) {
-        alert("Error, please try again");
-      //  this.role= data['users']['0']['role_id'];
+      } 
+      catch (err) {
+      alert("Error, please try again");
+    
       }
 
         

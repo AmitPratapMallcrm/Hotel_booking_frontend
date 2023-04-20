@@ -221,11 +221,7 @@
                   val:"",
                   id: this.$store.getters.hotelid,
                hotelid: this.$store.getters.hotelid,
-                  activeFilters: {
-                      frontend:true,
-                      backend:true,
-                      career: true
-                  }
+                 
               };
            },
             created(){
@@ -259,9 +255,7 @@
           computed:{
               } ,
           methods: {
-              setFilters(updatedFilters){
-               this.activeFilters= updatedFilters;
-              },
+              
               add1()
               {
                   this.total=this.total+this.room1;

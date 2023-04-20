@@ -19,7 +19,7 @@
                         </div>
                         <div class="input-field">
                             <label>Any Message</label>
-                            <input type="text" placeholder="Enter your ccupation" v-model="message" >
+                            <input type="text" placeholder="Enter your Message" v-model="message" >
                         </div>
                          <div class="input-field">
                             <label>Arrival Date</label>

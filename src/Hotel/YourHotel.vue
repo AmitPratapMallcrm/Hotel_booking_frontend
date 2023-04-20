@@ -49,8 +49,8 @@
                         <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">Click the icon!</h3>
-                                    <p class="fs-5">Update Details</p>
+                                    <h3 class="fs-2">Click Icon</h3>
+                                    <p class="fs-5">Edit Details</p>
                                 </div>
                                 <i @click="callcomponent()"
                   class="fas fa-regular fa-pen primary-text border rounded-full secondary-bg p-3"
@@ -138,7 +138,7 @@ export default {
     methods: {
       
         callcomponent(){
-      this.$router.push('/register');
+      this.$router.push('/yourhotel/'+this.hotelid+'/edit');
     }
        
     }

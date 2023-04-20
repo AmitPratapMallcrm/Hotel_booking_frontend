@@ -298,7 +298,7 @@
               </div>
             </div>
           </div>
-        <button>Submit</button>
+        <button>Update Details</button>
       </form>
     </section>
   </div>
@@ -308,11 +308,12 @@ import axios from "axios";
 export default {
   data() {
     return {
-      val:'',
-      find:{
-         userId: localStorage.userId,
-      },
-
+    link:'',
+     link1:'',
+     hotelId:'',
+     roomId1:'',
+      roomId2:'',
+       roomId3:'',
       hotel: {
         userId: localStorage.userId,
         email: "",
@@ -349,31 +350,65 @@ export default {
       }
     };
   },
-  // async beforeMount()
-  // {
-  //       await axios
-  //       .post("http://127.0.0.1:8000/api/hotelfind", this.find)
-  //       .then(({data}) => {
-  //        try {
-  //            this.val=data['users'];
-  //            if(this.val!=0)
-  //            {
-  //             this.$router.push("/yourhotel");
-  //            }
-  //         }
-  //          catch (err) {
-  //           alert("Error, please try again");
-  //         }
-  //       });
-  // },
-  methods: {
-  
-  async onClick() {
+  mounted()
+  {   
+    // console.log(this.$route.params.id);
+    // console.log("this.$route.params.id");
+  this.room.hotel_id=this.$route.params.id
+   this.getHotelData(this.$route.params.id);
+ 
 
+  },
+  methods: {
+    getHotelData(hotelId)
+    {  
+      this.hotelId=hotelId
+     
+      this.link='http://127.0.0.1:8000/api/hotel/'+ hotelId +'/edit';
+       axios.get(this.link)
+    .then( res  => {
+           console.log(res);
+        this.hotel.number=res["data"]["hotel"]['0']['phonenumber'],
+         this.hotel.wifi=res["data"]["hotel"]['0']['wifi'],
+         this.hotel.avail=res["data"]["hotel"]['0']['availability'],
+         this.hotel.address=res["data"]["hotel"]['0']['address'],
+         this.hotel.pincode=res["data"]["hotel"]['0']['location'],
+         this.hotel.district=res["data"]["hotel"]['0']['district'],
+         this.hotel.totalroom=res["data"]["hotel"]['0']['numberofavailroom'],
+         this.hotel.imglink=res["data"]["hotel"]['0']['hotelimage'],
+       
+        this.room.price1=res["data"]["hotel"]['0']['price'] ,
+        this.room.desc1=res["data"]["hotel"]['0']['facilities'] ,
+        this.room.img1=res["data"]["hotel"]['0']['image'] ,
+        this.room.avail1=res["data"]["hotel"]['0']['avail'] ,
+        this.room.number1=res["data"]["hotel"]['0']['numberofroom'] ,
+
+         this.room.price2=res["data"]["hotel"]['1']['price'] ,
+        this.room.desc2=res["data"]["hotel"]['1']['facilities'] ,
+        this.room.img2=res["data"]["hotel"]['1']['image'] ,
+        this.room.avail2=res["data"]["hotel"]['1']['avail'],
+        this.room.number2=res["data"]["hotel"]['1']['numberofroom'] ,
+
+        this.room.price3=res["data"]["hotel"]['2']['price'] ,
+        this.room.desc3=res["data"]["hotel"]['2']['facilities'] ,
+        this.room.img3=res["data"]["hotel"]['2']['image'] ,
+        this.room.avail3=res["data"]["hotel"]['2']['avail'] ,
+        this.room.number3=res["data"]["hotel"]['2']['numberofroom'] 
+           
+          
+   });
+
+    },
+  async onClick() {
+    this.link1='http://127.0.0.1:8000/api/hotel/'+ this.hotelId +'/edit';
       await axios
-        .post("http://127.0.0.1:8000/api/hotelRegister", this.hotel)
+        .put(this.link1, this.hotel)
         .then(( data ) => {
           try {
+           
+               this.roomId1= data['data']['room']['0']['id'];
+               this.roomId2= data['data']['room']['1']['id'];
+               this.roomId3= data['data']['room']['2']['id'];
              this.room.hotel_id=data["data"]["id"];
           
           }
@@ -381,20 +416,19 @@ export default {
             alert("Error, please try again");
           }
         });
-       
-      await  axios
-        .post("http://127.0.0.1:8000/api/roomRegister", this.room)
+
+
+       this.link1='http://127.0.0.1:8000/api/room/'+ this.roomId1 +'/edit';
+        axios
+        .put(this.link1, this.room)
         .then((  ) => {
           try {
-             
-             alert('Hotel register successfully');
+             alert('Changes made successfully');
               this.$router.push('/yourhotel')
           }
            catch (err) {
-            alert("Error, please try again");
-             
+            alert("Error, please try again");   
           }
-         
         });
         
      },

@@ -8,6 +8,7 @@
       <router-link to="/login" v-if="addone()===false">Login</router-link>
       <router-link to="/registerpage" v-if="addone()===false">Sign Up </router-link>
        <router-link to="/logout" @click="logoutapp" v-if="addone()===true" > Logout </router-link>
+       <router-link to="/yourhotel"  v-if="hotel()===true" >Dashboard </router-link>
 
   <div style="position:absolute; right:0">
      <router-link to="/registerpage" v-if="addone()===false">user </router-link>
@@ -43,6 +44,14 @@ methods :{
       if(localStorage.userId == 1 || localStorage.userId == 2)
           return false;
         else return true;
+      
+    },
+    hotel()
+    {
+
+      if(localStorage.userId == 2)
+          return true;
+        else return false;
       
     },
     logoutapp()
